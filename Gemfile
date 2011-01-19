@@ -12,6 +12,8 @@ gem 'tabletastic', '0.2.1'
 gem 'flutie', '1.1.2'
 gem 'inherited_resources', '1.1.2'
 gem 'will_paginate', '3.0.pre2'
+gem 'hoptoad_notifier'
+gem 'heroku'
 
 group :test, :development do
   gem 'mongrel', '1.2.0.pre2'
