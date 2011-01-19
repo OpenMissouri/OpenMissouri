@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+<div id="sidebar">
+	<div id="sidebar_content" class="clearfix">
+		<h3>Browse Categories</h3>
+		<p>We need some categories.</p>
+		<p>
+		  <%= link_to 'Add a Data Set', new_data_set_path, :class => 'button' %>
+		</p>
+	</div>
+</div>
+
+<div id="content" class="clearfix">
+	
+
+<% title 'Browse Data' %>
+
+<div class="filter_box">
+	<table cellspacing="0" cellpadding="0" border="0">
+		<tr>
+			<td><label>Jurisdication</label></td>
+			<td><label>Organization</label></td>
+			<td><label>Source</label></td>
+			<td><label>Released</label></td>
+			<td><label>Avalability</label></td>
+		</tr>
+	</table>
+</div>
+
+<% unless @data_sets.blank? %>
+	<div id="data_sets">
+	<% @data_sets.each do |data_set| %>
+		<div class="data_set">
+			<h3><%= link_to data_set.name, data_set_path(data_set) %></h3>
+			<p><%= link_to data_set.organization.name, organization_path(data_set.organization) %></p>
+			<p><% unless data_set.description.blank?  %>
+	      <%= first_x_words(strip_tags(data_set.description),30,'...') %>
+	    	<% end %> </p>
+			
+	</div>
+	<% end %>
+  <%= will_paginate(@data_sets) %>
+<% else %>
+  <br /><br />
+<% end %>
+</div>
+
+
+<br />
+
+
+
+</div>

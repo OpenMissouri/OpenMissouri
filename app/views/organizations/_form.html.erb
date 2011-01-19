@@ -1,0 +1,25 @@
+<%= semantic_form_for(resource) do |form| %>
+  <%= form.inputs do %>
+    <%= form.input :name %>
+    <%= form.input :government_level %>
+    <%= form.input :governement_entity_name %>
+    <%= form.input :agency_head %>
+    <%= form.input :sunshine_contact %>
+    <%= form.input :sunshine_title %>
+    <%= form.input :sunshine_phone, :as => "string" %>
+    <%= form.input :sunshine_email, :as => "string" %>
+    <%= form.input :website, :as => "string" %>
+    <%= form.input :description %>
+    <%= form.input :address1 %>
+    <%= form.input :address2 %>
+    <%= form.input :city %>
+    <%= form.input :state %>
+    <%= form.input :postal_code %>
+    <%= form.input :notes %>
+    <%= form.input :fax, :as => "string" %>
+    <p><%#= form.input :accepts_email_requests %></p>
+
+  <% end %>
+
+  <%= form.buttons %> or <%= link_to 'cancel', resource %>
+<% end %>

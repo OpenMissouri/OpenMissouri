@@ -1,0 +1,111 @@
+
+<p id="notice"><%= notice %></p>
+<div id="sidebar">
+	<div id="sidebar_content">
+		<h3>Share this Agency</h3>
+		<ul>
+			<li><%= link_to "Tweet this", ""%></li>
+			<li><%= link_to "Share on Facebook", ""%></li>
+			<li><%= link_to "Email a Friend", ""%></li>
+		</ul>
+	</div>
+</div>
+
+<div id="content" class="clearfix">
+	
+	<% title @organization.name %>
+
+	<p>
+	  <%= @organization.description %>
+	</p>
+
+	<div class="summary_box">
+		<table cellspacing="0" cellpadding="0" border="0">
+			<tr>
+				<td>
+					<p>
+					  <label>Government level:</label>
+					  <%= @organization.government_level %>
+					</p>
+					<p>
+					  <label>Governement entity name:</label>
+					  <%= @organization.governement_entity_name %>
+					</p>
+
+					<p>
+					  <label>Agency head:</label>
+					  <%= @organization.agency_head %>
+					</p>
+
+					<p>
+					  <label>Sunshine contact:</label>
+					  <%= @organization.sunshine_contact %>
+					</p>
+
+					<p>
+					  <label>Sunshine title:</label>
+					  <%= @organization.sunshine_title %>
+					</p>
+
+
+
+				</td>
+				<td>
+					<p>
+					  <label>Address1:</label>
+					  <%= @organization.address1 %>
+						<%= @organization.address2 %>
+						<br /><%= @organization.city %>, <%= @organization.state %> <%= @organization.postal_code %>
+					</p>
+
+					<p>
+					  <label>Sunshine phone:</label>
+					  <%= @organization.sunshine_phone %>
+					</p>
+
+					<p>
+					  <label>Sunshine email:</label>
+					  <%= @organization.sunshine_email %>
+					</p>
+
+					<p>
+					  <label>Website:</label>
+					  <%= @organization.website %>
+					</p>
+
+
+
+				</td>
+			</tr>
+		</table>
+		</div>
+		
+		<h3>Data Sets</h3>
+		<% unless @organization.data_sets.blank? %>
+			<div id="data_sets">
+			<% @organization.data_sets.each do |data_set| %>
+				<div class="data_set">
+					<h3><%= data_set.name %></h3>
+					<p><% unless data_set.description.blank?  %>
+			      <%= first_x_words(strip_tags(data_set.description),30,'...') %>
+			    	<% end %> </p>
+
+				</div>
+			<% end %>
+		  <%#= will_paginate(@organization.data_sets) %>
+		<% else %>
+		  <p>This organization does not have any data sets</p>
+		<% end %>
+
+	</div>
+	
+	
+
+
+	<%= link_to 'Edit', edit_organization_path(@organization) %> |
+	
+
+<div>
+
+
+

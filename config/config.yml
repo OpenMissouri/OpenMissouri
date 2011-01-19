@@ -1,0 +1,19 @@
+defaults: &defaults
+  token: d77d65f2f8a2ee751d816683e05a8ea2167321958a1bb5e951022317eba0835b9f1229c3eecac185584afwers1262e390b195dee85610b672bcc1492fb9e2f816
+  app_name: Open Missouri
+  noreply: noreply@openmissouri.org
+  host: localhost:3000
+  identities:
+    twitter:
+      key: 
+      secret: 
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+  host: openmissouri.org

@@ -1,0 +1,66 @@
+
+
+
+
+
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Organization:</b>
+  <%= @data_set.organization_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @data_set.user_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @data_set.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @data_set.description %>
+</p>
+
+<p>
+  <b>Data format:</b>
+  <%= @data_set.data_format %>
+</p>
+
+<p>
+  <b>Cost:</b>
+  <%= @data_set.cost %>
+</p>
+
+<p>
+  <b>Period start date:</b>
+  <%= @data_set.period_start_date %>
+</p>
+
+<p>
+  <b>Period end date:</b>
+  <%= @data_set.period_end_date %>
+</p>
+
+<p>
+  <b>Update frequency:</b>
+  <%= @data_set.update_frequency %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @data_set.notes %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%= @data_set.website %>
+</p>
+
+
+<%= link_to 'Edit', edit_data_set_path(@data_set) %> |
+<%= link_to 'Back', data_sets_path %>

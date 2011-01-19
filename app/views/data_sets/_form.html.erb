@@ -1,0 +1,14 @@
+<%= semantic_form_for(resource) do |form| %>
+  <%= form.inputs do %>
+    <%= form.input :organization,  :as => :select,      :collection => Organization.find(:all) %>
+    <%= form.input :name %>
+    <%= form.input :description %>
+    <%= form.input :data_format %>
+    <%= form.input :cost %>
+    <%= form.input :period_start_date, :as => "date", :label => "Start Date" %>
+    <%= form.input :period_end_date, :as => "date", :label => "End Date" %>
+    <%= form.input :update_frequency %>
+  <% end %>
+
+  <%= form.buttons %> or <%= link_to 'cancel', resource %>
+<% end %>

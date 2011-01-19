@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+<div id="sidebar">
+	<div id="sidebar_content" class="clearfix">
+		<h3>Browse Categories</h3>
+		<p>We need some categories.</p>
+		<p>
+		  <%= link_to 'Add an Agency', new_organization_path, :class => 'button' %>
+		</p>
+	</div>
+</div>
+
+<div id="content" class="clearfix">
+	
+
+<% title 'Agencies' %>
+
+<% unless @organizations.blank? %>
+	<div id="organizations">
+	<% @organizations.each do |organization| %>
+		<div class="organization">
+			<h3><%= link_to organization.name, organization_path(organization) %></h3>
+			<p><%= organization.data_sets.size %> data sets</p>
+			<p><% unless organization.description.blank?  %>
+	      <%= first_x_words(strip_tags(organization.description),30,'...') %>
+	    	<% end %> </p>
+			
+		</div>
+	</div>
+	<% end %>
+  <%= will_paginate(@organizations) %>
+<% else %>
+  <br /><br />
+<% end %>
+
+<br />
+
+
+
+</div>
