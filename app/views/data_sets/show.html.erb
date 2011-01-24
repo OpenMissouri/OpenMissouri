@@ -1,66 +1,74 @@
 
-
-
-
-
-
 <p id="notice"><%= notice %></p>
+<div id="sidebar">
+	<div id="sidebar_content">
+		<h3>Share this Data Set</h3>
+		<ul>
+			<li><%= link_to "Tweet this", ""%></li>
+			<li><%= link_to "Share on Facebook", ""%></li>
+			<li><%= link_to "Email a Friend", ""%></li>
+		</ul>
+	</div>
+</div>
 
-<p>
-  <b>Organization:</b>
-  <%= @data_set.organization_id %>
-</p>
+<div id="content" class="clearfix">
+	
+	<% title @data_set.name %>
+	<div class="page_subtitle"><%= link_to @data_set.organization.name, @data_set.organization %></div>
+	<% unless @data_set.website.blank? %>
+	<p><b>Website:</b><%= @data_set.website %></p>
+	<% end %>
+	
+	<p><%= @data_set.description %></p>
 
-<p>
-  <b>User:</b>
-  <%= @data_set.user_id %>
-</p>
+	<div class="summary_box">
+		<table cellspacing="0" cellpadding="0" border="0" class="summary_table">
+			<tr>
+				<td>
+					<% unless @data_set.data_format.blank? %>
+					
+					<p>
+					  <b>Data format:</b>
+					  <%= @data_set.data_format %>
+					</p>
+					<% end %>
+					
+					<% if @data_set.period_start_date %>
+					<p>
+					  <b>Cost:</b>
+					  <%= @data_set.cost %>
+					</p>
+					<% end %>
+					
+					<% unless @data_set.update_frequency.blank? %>
+					<p>
+					  <b>Update frequency:</b>
+					  <%= @data_set.update_frequency %>
+					</p>
+					<% end%>
 
-<p>
-  <b>Name:</b>
-  <%= @data_set.name %>
-</p>
+				</td>
+				<td>
+					<% if @data_set.period_start_date %>
+					<p>
+					  <b>Period start date:</b>
+					  <%= format_date(@data_set.period_start_date) %>
+					</p>
+					<% end %>
+					
+					<% if @data_set.period_end_date %>
+					<p>
+					  <b>Period end date:</b>
+					  <%= format_date(@data_set.period_end_date) %>
+					</p>
+					<% end%>
+					
+					
 
-<p>
-  <b>Description:</b>
-  <%= @data_set.description %>
-</p>
+				</td>
+			</tr>
+		</table>
+		</div>
+	</div>
+<div>
 
-<p>
-  <b>Data format:</b>
-  <%= @data_set.data_format %>
-</p>
-
-<p>
-  <b>Cost:</b>
-  <%= @data_set.cost %>
-</p>
-
-<p>
-  <b>Period start date:</b>
-  <%= @data_set.period_start_date %>
-</p>
-
-<p>
-  <b>Period end date:</b>
-  <%= @data_set.period_end_date %>
-</p>
-
-<p>
-  <b>Update frequency:</b>
-  <%= @data_set.update_frequency %>
-</p>
-
-<p>
-  <b>Notes:</b>
-  <%= @data_set.notes %>
-</p>
-
-<p>
-  <b>Website:</b>
-  <%= @data_set.website %>
-</p>
-
-
-<%= link_to 'Edit', edit_data_set_path(@data_set) %> |
-<%= link_to 'Back', data_sets_path %>

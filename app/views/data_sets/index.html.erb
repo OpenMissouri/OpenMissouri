@@ -2,7 +2,7 @@
 <div id="sidebar">
 	<div id="sidebar_content" class="clearfix">
 		<h3>Browse Categories</h3>
-		<p>We need some categories.</p>
+		<p>Categories will go here.</p>
 		<p>
 		  <%= link_to 'Add a Data Set', new_data_set_path, :class => 'button' %>
 		</p>
@@ -14,7 +14,7 @@
 
 <% title 'Browse Data' %>
 
-<div class="filter_box">
+<div class="filter_box" style="display: none;">
 	<table cellspacing="0" cellpadding="0" border="0">
 		<tr>
 			<td><label>Jurisdication</label></td>
@@ -28,20 +28,12 @@
 
 <% unless @data_sets.blank? %>
 	<div id="data_sets">
-	<% @data_sets.each do |data_set| %>
-		<div class="data_set">
-			<h3><%= link_to data_set.name, data_set_path(data_set) %></h3>
-			<p><% unless data_set.organization.blank? %><%= link_to data_set.organization.name, organization_path(data_set.organization) %><% end %></p>
-			<p><% unless data_set.description.blank?  %>
-	      <%= first_x_words(strip_tags(data_set.description),30,'...') %>
-	    	<% end %> </p>
-			
-	</div>
-	<% end %>
-  <%= will_paginate(@data_sets) %>
+		<%= render @data_sets %>
+  	<%= will_paginate(@data_sets) %>
 <% else %>
-  <br /><br />
+	<p>We were not able to find any data sets for you.</p>
 <% end %>
+
 </div>
 
 

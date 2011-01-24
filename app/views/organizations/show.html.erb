@@ -3,11 +3,13 @@
 <div id="sidebar">
 	<div id="sidebar_content">
 		<h3>Share this Agency</h3>
+		<div class="social_menu">
 		<ul>
-			<li><%= link_to "Tweet this", ""%></li>
-			<li><%= link_to "Share on Facebook", ""%></li>
-			<li><%= link_to "Email a Friend", ""%></li>
+			<li class="twitter"><%= link_to "Tweet this", ""%></li>
+			<li class="facebook"><%= link_to "Share on Facebook", ""%></li>
+			<li class="email"><%= link_to "Email a Friend", ""%></li>
 		</ul>
+		</div>
 	</div>
 </div>
 
@@ -15,63 +17,83 @@
 	
 	<% title @organization.name %>
 
-	<p>
+	<div class="description">
 	  <%= @organization.description %>
-	</p>
+	</div>
+	
+	<h3>Contact Information </h3>
+	<div class="contact_info">
+	<%=raw address_block(@organization.address1, @organization.address2, @organization.city, @organization.state, @organization.postal_code) %>
+	</div>
+
+	<h3>Agency Details </h3>
 
 	<div class="summary_box">
-		<table cellspacing="0" cellpadding="0" border="0">
+		<table cellspacing="0" cellpadding="0" border="0" class="summary_table">
 			<tr>
 				<td>
-					<p>
-					  <label>Government level:</label>
-					  <%= @organization.government_level %>
-					</p>
-					<p>
-					  <label>Governement entity name:</label>
-					  <%= @organization.governement_entity_name %>
-					</p>
+					
+					<% unless @organization.government_level.blank? %>
+						<p>
+						  <label>Government level:</label>
+						  <%= @organization.government_level %>
+						</p>
+					<% end %>
+					
+					<% unless @organization.governement_entity_name.blank? %>
+						<p>
+						  <label>Governement entity name:</label>
+						  <%= @organization.governement_entity_name %>
+						</p>
+					<% end %>
 
-					<p>
-					  <label>Agency head:</label>
-					  <%= @organization.agency_head %>
-					</p>
+					<% unless @organization.agency_head.blank? %>
+						<p>
+						  <label>Agency head:</label>
+						  <%= @organization.agency_head %>
+						</p>
+					<% end %>
 
-					<p>
-					  <label>Sunshine contact:</label>
-					  <%= @organization.sunshine_contact %>
-					</p>
+					<% unless @organization.sunshine_contact.blank? %>
+						<p>
+						  <label>Sunshine contact:</label>
+						  <%= @organization.sunshine_contact %>
+						</p>
+					<% end %>
 
-					<p>
-					  <label>Sunshine title:</label>
-					  <%= @organization.sunshine_title %>
-					</p>
+					<% unless @organization.sunshine_title.blank? %>
+						<p>
+						  <label>Sunshine title:</label>
+						  <%= @organization.sunshine_title %>
+						</p>
+					<% end %>
 
 
 
 				</td>
 				<td>
-					<p>
-					  <label>Address1:</label>
-					  <%= @organization.address1 %>
-						<%= @organization.address2 %>
-						<br /><%= @organization.city %>, <%= @organization.state %> <%= @organization.postal_code %>
-					</p>
+					
 
-					<p>
-					  <label>Sunshine phone:</label>
-					  <%= @organization.sunshine_phone %>
-					</p>
+					<% unless @organization.government_level.blank? %>
+						<p>
+						  <label>Sunshine phone:</label>
+						  <%= @organization.sunshine_phone %>
+						</p>
+					<% end %>
 
-					<p>
-					  <label>Sunshine email:</label>
-					  <%= @organization.sunshine_email %>
-					</p>
+					<% unless @organization.government_level.blank? %>
+						<p>
+						  <label>Sunshine email:</label>
+						  <%= @organization.sunshine_email %>
+						</p>
+					<% end %>
 
-					<p>
-					  <label>Website:</label>
-					  <%= @organization.website %>
-					</p>
+					<% unless @organization.government_level.blank? %>
+						<p>
+						  <label>Website:</label>
+						  <%= @organization.website %>
+						</p>
+					<% end %>
 
 
 
@@ -85,7 +107,7 @@
 			<div id="data_sets">
 			<% @organization.data_sets.each do |data_set| %>
 				<div class="data_set">
-					<h3><%= data_set.name %></h3>
+					<h3><%= link_to data_set.name, data_set %></h3>
 					<p><% unless data_set.description.blank?  %>
 			      <%= first_x_words(strip_tags(data_set.description),30,'...') %>
 			    	<% end %> </p>
@@ -101,9 +123,9 @@
 	
 	
 
-
-	<%= link_to 'Edit', edit_organization_path(@organization) %> |
-	
+	<% if current_user.admin? %>
+	<%= link_to 'Edit', edit_organization_path(@organization) %>
+	<% end %>
 
 <div>
 

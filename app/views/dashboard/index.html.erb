@@ -5,16 +5,22 @@
 	<div id="sidebar">
 		<div id="sidebar_content">
 			<h3>Browse Categories</h3>
-			<p>We need some categories.</p>
+			<p>Categories will go here.</p>
 		</div>
 	</div>
 
 	<div id="content" class="clearfix">
 		<% title 'Welcome to Open Missouri' %>
 
-		<p>Content about Open Missouri goes here.</p>
+		<p>OpenMissouri helps you locate data in the state of Missouri.</p>
 
-		<h3>Popular Data Sets</h3>
+		<h3>Recent Data Sets</h3>
+		<% unless @data_sets.blank? %>
+			<div id="data_sets">
+				<%= render @data_sets %>
+		<% else %>
+			<p>We were not able to find any data sets for you.</p>
+		<% end %>
 	
 	<div>
 

@@ -1,6 +1,6 @@
-body { background: #fff; }
+body { background: #fff url(/images/background.jpg) top left repeat-x;}
 .header_holder {
-  margin: 30px auto 10px auto;
+  margin: 50px auto 10px auto;
   width: 960px;
 }
 .header{
@@ -31,6 +31,10 @@ table{ border: 0;}
 table td{ border: 0;}
 
 
+h1{ font-size: 24px; font-weight: bold; margin: 0 0 10px 0; padding: 0;}
+h3{ margin: 0 0 10px 0; padding: 0 0 0 0 ;}
+#sidebar h3{ margin: 0 0 10px 0; padding: 0 0 0 0 ; font-size: 14px;}
+
 #content p{margin: 0 0 15px 0; line-height: 16px;}
 #sidebar p{margin: 0 0 15px 0; line-height: 16px;}
 
@@ -44,6 +48,8 @@ table td{ border: 0;}
 #data_sets .data_set{ background-color: #eee; padding: 15px; border-bottom: 1px solid #ccc;}
 #data_sets .data_set h3{ margin-bottom: 5px;}
 #data_sets .data_set p{ margin: 0 0 5px 0;}
+
+.page_subtitle{ font-weight: bold; margin: 0 0 15px 0; font-size: 16px;}
 
 #navigation { padding-top: 20px;}
 #navigation ul{ margin: 0; padding: 0; float: left; }
@@ -60,7 +66,20 @@ table td{ border: 0;}
 
 #sidebar{ width: 280px; float: right; background-color: #eee; border: 1px solid #ccc; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
 
+#sidebar .social_menu ul{ list-style-type: none; padding: 0; margin: 0;}
+#sidebar .social_menu ul li{ padding: 0 0 0 22px; margin: 0; border-bottom: 1px solid #ccc; font-size: 12px;}
+#sidebar .social_menu ul li a{font-size: 12px; }
+#sidebar .social_menu ul li.first{ }
+#sidebar .social_menu ul li.last{ border-bottom: 0;}
+#sidebar .social_menu ul li.selected{ background-color: #ddd;}
+#sidebar .social_menu ul li.twitter{ background: transparent url(/images/icons/social/twitter_16.png) 5px 5px no-repeat;}
+#sidebar .social_menu ul li.facebook{ background: transparent url(/images/icons/social/facebook_16.png) 5px 5px no-repeat;}
+#sidebar .social_menu ul li.email{ background: transparent url(/images/icons/social/email_16.png) 5px 5px no-repeat;}
+
+
 #content{ width: 620px; float: left; }
+
+div.description{line-height: 18px; margin: 0 0 15px 0;}
 
 #sidebar ul{ list-style-type: none; padding: 8px 0 8px 0; }
 #sidebar ul li{  }
@@ -73,15 +92,21 @@ table td{ border: 0;}
 #sidebar_profile .timeline_item { border-width: 1px 1px 0px 1px; border-color: #ccc; border-style: solid; padding: 6px 8px 6px 8px; background-color: #fff; line-height: 16px; color: #404040;}
 #sidebar_profile .tweet{ }
 
-.summary_box{ padding: 15px; border: 1px solid #ccc; background-color: #eee; margin: 0 0 15px 0;}
+.summary_box{ padding: 15px 15px 5px 15px; border: 1px solid #ccc; background-color: #eee; margin: 0 0 15px 0; -moz-border-radius: 3px; -webkit-border-radius: 3px;}
 .summary_box table{ vertical-align: top; border: 0; margin: 0;}
 .summary_box table td{ border:0; width: 50%; padding: 0;}
 .summary_box p{ margin: 0 0 10px 0;}
 label{ font-weight: bold; margin: 0 0 3px 0;}
 
+table.summary_table{ margin: 0;}
+table.summary_table td{ vertical-align: top;}
+
+.contact_info{ margin: 0 0 15px 0;}
 
 .filter_box{ border: 1px solid #ccc; background-color: #eee; margin: 0 0 15px 0; padding: 15px;}
 .filter_box table{ margin: 0;}
+
+
 
 div.alert { border: 1px solid #ddd; -moz-border-radius: 8px; -webkit-border-radius: 8px; margin-bottom: 1em; padding: 0.8em; background: #FBE3E4; border-color: #FBC2C4; color: #D12F19;}
 div.error a { color: #D12F19; }
@@ -100,6 +125,8 @@ table.list td.actions a:hover { filter:progid:DXImageTransform.Microsoft.Alpha(o
 .edit_link a { background-image: url("/images/icon_edit.gif"); }
 .destroy_link a { background-image: url("/images/icon_delete.gif"); }
 .show_link a { background-image: url("/images/icon_view.gif"); }
+
+
 
 a.button, fieldset.buttons input { background: url("/images/button_bg.gif") bottom left repeat-x; border:0; height:32px; overflow:visible; cursor:pointer; border:solid 1px #d2d2d2; line-height:30px; padding: 0 10px; font-weight:bold; text-shadow: 1px 1px #fff; border-radius:3px; -khtml-border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; margin:0; text-transform:uppercase; color:#000; text-decoration:none; }
 a.button:hover, fieldset.buttons input:hover { color:#555; }
