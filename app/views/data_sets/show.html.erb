@@ -20,7 +20,12 @@
 	<% unless @data_set.website.blank? %>
 	<p><b>Website:</b><%= @data_set.website %></p>
 	<% end %>
-	
+	<% if @data_set.category_list %>
+	<p>
+	  <b>Categories:</b>
+	  <%= @data_set.category_list %>
+	</p>
+	<% end %>
 	<p><%= @data_set.description %></p>
 
 	<div class="summary_box">

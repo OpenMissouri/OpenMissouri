@@ -2,7 +2,7 @@
 <div id="sidebar">
 	<div id="sidebar_content" class="clearfix">
 		<h3>Browse Categories</h3>
-		<p>We need some categories.</p>
+		
 		<p>
 		  <%= link_to 'Add an Agency', new_organization_path, :class => 'button' %>
 		</p>
@@ -15,9 +15,9 @@
 <% title 'Agencies' %>
 
 <% unless @organizations.blank? %>
-	<div id="organizations">
+	<div id="data_list">
 	<% @organizations.each do |organization| %>
-		<div class="organization">
+		<div class="data_item">
 			<h3><%= link_to organization.name, organization_path(organization) %></h3>
 			<p><%= organization.data_sets.size %> data sets</p>
 			<p><% unless organization.description.blank?  %>

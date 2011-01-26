@@ -16,7 +16,7 @@
 <div id="content" class="clearfix">
 	
 
-<% title 'Browse Data Sets' %>
+<% title "Data Sets in Category: #{params[:id]}" %>
 
 <div class="filter_box" style="display: none;">
 	<table cellspacing="0" cellpadding="0" border="0">
@@ -31,9 +31,9 @@
 </div>
 
 <% unless @data_sets.blank? %>
-	<div id="data_list">
+	<div id="data_sets">
 		<%= render @data_sets %>
-  	<%= will_paginate(@data_sets) %>
+  	<%#= will_paginate(@data_sets) %>
 <% else %>
 	<p>We were not able to find any data sets for you.</p>
 <% end %>

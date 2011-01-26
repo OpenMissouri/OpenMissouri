@@ -1,7 +1,13 @@
 Rails3Base::Application.routes.draw do
-  resources :data_sets
-
+  
+  resources :data_sets do
+    collection do
+      get :category
+    end
+  end
+  
   resources :organizations
+  
   match 'about', :to => 'dashboard#about', :as => "about"
   
   

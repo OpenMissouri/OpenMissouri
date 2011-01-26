@@ -29,6 +29,7 @@ GEM
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
     activesupport (3.0.3)
+    acts-as-taggable-on (2.0.6)
     addressable (2.2.2)
     arel (2.0.4)
     autotest (4.4.1)
@@ -260,6 +261,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on
   autotest (= 4.4.1)
   autotest-rails (= 4.1.0)
   capybara (= 0.3.9)

@@ -1,6 +1,6 @@
 <%# @data_sets.each do |data_set| %>
 	
-<div class="data_set">
+<div class="data_item">
 	<h3><%= link_to data_set.name, data_set_path(data_set) %></h3>
 	<p><% unless data_set.organization.blank? %><%= link_to data_set.organization.name, organization_path(data_set.organization) %><% end %></p>
 	<p><% unless data_set.description.blank?  %>

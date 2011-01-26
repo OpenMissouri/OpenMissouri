@@ -1,4 +1,8 @@
 <div id="navigation">
-  <%= render_navigation(:context => :main) %>
-  <%= render_navigation(:context => :user) %>
+  <div class="user_nav">
+		<%= render_navigation(:context => :user) %>
+	</div>
+  <div class="main_nav">
+  	<%= render_navigation(:context => :main) %>
+	</div>
 </div>

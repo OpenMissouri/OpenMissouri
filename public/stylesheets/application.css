@@ -1,6 +1,6 @@
-body { background: #fff url(/images/background.jpg) top left repeat-x;}
+body { background: #eee url(/images/header_bg.jpg) top left repeat-x;}
 .header_holder {
-  margin: 50px auto 10px auto;
+  margin: 22px auto 10px auto;
   width: 960px;
 }
 .header{
@@ -38,31 +38,31 @@ h3{ margin: 0 0 10px 0; padding: 0 0 0 0 ;}
 #content p{margin: 0 0 15px 0; line-height: 16px;}
 #sidebar p{margin: 0 0 15px 0; line-height: 16px;}
 
-
-#organizations{ border-top: 1px solid #ccc;}
-#organizations .organization{ background-color: #eee; padding: 15px; border-bottom: 1px solid #ccc;}
-#organizations .organization h3{ margin-bottom: 5px;}
-#organizations .organization p{ margin: 0 0 5px 0;}
-
-#data_sets{ border-top: 1px solid #ccc;}
-#data_sets .data_set{ background-color: #eee; padding: 15px; border-bottom: 1px solid #ccc;}
-#data_sets .data_set h3{ margin-bottom: 5px;}
-#data_sets .data_set p{ margin: 0 0 5px 0;}
+#data_list{ border-top: 3px solid #404040; padding-top: 15px;}
+#data_list .data_item{ background-color: #fff; padding: 0 0 10px 0; margin: 0 0 10px 0; border-bottom: 1px solid #bbb;}
+#data_list .data_item h3{ margin-bottom: 5px;}
+#data_list .data_item p{ margin: 0 0 5px 0;}
 
 .page_subtitle{ font-weight: bold; margin: 0 0 15px 0; font-size: 16px;}
 
-#navigation { padding-top: 20px;}
-#navigation ul{ margin: 0; padding: 0; float: left; }
-#navigation ul li{ display: inline; }
-#navigation ul li a{ float: left; text-decoration: none; padding: 5px; color: #333;}
-#navigation ul li a:hover, #navigation ul li .selected { color: #222 }
+#navigation { padding-top: 0; float: right;}
+#navigation .user_nav{ }
+#navigation .main_nav{ }
 
-#navigation ul.main{ margin-left: 20px; }
+
+#navigation ul.user{ margin: 0; padding: 0; float: right;}
+#navigation ul.user li{ display: inline; }
+#navigation ul.user li a{ float: left; text-decoration: none; padding: 0px 0 5px 5px; color: #333;}
+#navigation ul.user li a:hover, #navigation ul li .selected { color: #222 }
+
+#navigation ul.main{ margin: 0; padding: 20px 0 0 0;  float: right; }
 #navigation ul.main li{ display: inline;  }
-#navigation ul.main li a{ float: left; text-decoration: none; padding: 2px 0 0 0; color: #333; font-size: 20px; font-weight: bold; margin-right: 20px;}
+#navigation ul.main li a{ float: left; text-decoration: none; padding: 2px 0 0 0; color: #333; font-size: 22px; font-weight: bold; margin-left: 20px;}
 #navigation ul.main li a:hover, #navigation ul li .selected { color: #222 }
 
-#navigation ul.user{ float: right;}
+
+
+#navigation ul.user{ text-align: right; }
 
 #sidebar{ width: 280px; float: right; background-color: #eee; border: 1px solid #ccc; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
 
@@ -81,10 +81,10 @@ h3{ margin: 0 0 10px 0; padding: 0 0 0 0 ;}
 
 div.description{line-height: 18px; margin: 0 0 15px 0;}
 
-#sidebar ul{ list-style-type: none; padding: 8px 0 8px 0; }
+#sidebar ul{ list-style-type: none; padding: 0; border-top: 1px solid #ccc; }
 #sidebar ul li{  }
-#sidebar ul li a{ display: block; font-size: 14px; color: #333; text-decoration: none; padding: 5px 5px 5px 12px; font-weight: bold;}
-#sidebar ul li a:hover{ text-decoration: underline;}
+#sidebar ul li a{ display: block; font-size: 12px;  text-decoration: none; padding: 5px 5px 5px 0px; font-weight: bold; border-bottom: 1px solid #ccc;}
+#sidebar ul li a:hover{ text-decoration: underline; background-color: #ddd;}
 
 #sidebar_content{padding: 15px;}
 #sidebar_profile{padding: 15px;}
