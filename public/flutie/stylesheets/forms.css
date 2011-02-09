@@ -126,7 +126,7 @@ fieldset .select select {
   font-size: 0.9em;
 } 
 optgroup { margin: 0 0 .5em 0; }
-form ol li.password, form ol li.date, form ol li.time, form ol li.select, form ol li.radio, form ol li.check_boxes, form ol li.string { width:350px; float: left; }
+form ol li.password, form ol li.date, form ol li.time, form ol li.select, form ol li.radio, form ol li.check_boxes, form ol li.string { width:350px; float: left }
 form ol li.datetime, form ol li.text { clear: both; width: 700px; }
 /* Date & Time */
 form ol li.date ol li, form ol li.time ol li {

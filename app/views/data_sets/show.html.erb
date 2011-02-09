@@ -9,6 +9,9 @@
 			<li class="facebook"><%= link_to "Share on Facebook", ""%></li>
 			<li class="email"><%= link_to "Email a Friend", ""%></li>
 		</ul>
+		<% if user_signed_in? and current_user.admin? %>
+		<%= link_to 'Edit', edit_data_set_path(@data_set) %>
+		<% end %>
 		</div>
 	</div>
 </div>
@@ -18,15 +21,14 @@
 	<% title @data_set.name %>
 	<div class="page_subtitle"><%= link_to @data_set.organization.name, @data_set.organization %></div>
 	<% unless @data_set.website.blank? %>
-	<p><b>Website:</b><%= @data_set.website %></p>
+	<p><b>Website:</b><%= link_to @data_set.website, format_url(@data_set.website) %></p>
 	<% end %>
-	<% if @data_set.category_list %>
+	<% if @data_set.category %>
 	<p>
-	  <b>Categories:</b>
-	  <%= @data_set.category_list %>
+	  <b>Category:</b>
+	  <%= @data_set.category.name %>
 	</p>
 	<% end %>
-	<p><%= @data_set.description %></p>
 
 	<div class="summary_box">
 		<table cellspacing="0" cellpadding="0" border="0" class="summary_table">
@@ -75,7 +77,10 @@
 				</td>
 			</tr>
 		</table>
+		
 		</div>
+		<div class="description"><%= @data_set.description %></div>
+		
 	</div>
 <div>
 

@@ -16,6 +16,7 @@ module ApplicationHelper
     url.include?( "http://" )? url : "http://#{url}"
   end
   
+  
   def format_date(date,format=:short)
     case format
       when "countdown"
@@ -28,7 +29,8 @@ module ApplicationHelper
         "#{date.month}/#{date.day}#{date.strftime("/%Y")}" if date
     end
   end
-
+  
+  
   def format_time(time)
     "#{time.strftime("%I").to_i.to_s}:#{time.strftime("%M")} #{time.strftime("%p")}" if time
   end

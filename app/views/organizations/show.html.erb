@@ -17,32 +17,26 @@
 	
 	<% title @organization.name %>
 
-	<div class="description">
-	  <%= @organization.description %>
-	</div>
-	
-	<h3>Contact Information </h3>
-	<div class="contact_info">
-	<%=raw address_block(@organization.address1, @organization.address2, @organization.city, @organization.state, @organization.postal_code) %>
-	</div>
-
-	<h3>Agency Details </h3>
 
 	<div class="summary_box">
 		<table cellspacing="0" cellpadding="0" border="0" class="summary_table">
 			<tr>
 				<td>
+					<div class="contact_info">
+					<label>Address</label>
+					<%=raw address_block(@organization.address1, @organization.address2, @organization.city, @organization.state, @organization.postal_code) %>
+					</div>
 					
 					<% unless @organization.government_level.blank? %>
 						<p>
 						  <label>Government level:</label>
-						  <%= @organization.government_level %>
+						  <%= @organization.government_level.name %>
 						</p>
 					<% end %>
 					
 					<% unless @organization.governement_entity_name.blank? %>
 						<p>
-						  <label>Governement entity name:</label>
+						  <label>Government entity name:</label>
 						  <%= @organization.governement_entity_name %>
 						</p>
 					<% end %>
@@ -54,6 +48,18 @@
 						</p>
 					<% end %>
 
+					<% unless @organization.website.blank? %>
+						<p>
+						  <label>Website:</label>
+						  <%= link_to @organization.website, format_url(@organization.website) %>
+						</p>
+					<% end %>
+
+
+
+				</td>
+				<td>
+					
 					<% unless @organization.sunshine_contact.blank? %>
 						<p>
 						  <label>Sunshine contact:</label>
@@ -67,33 +73,21 @@
 						  <%= @organization.sunshine_title %>
 						</p>
 					<% end %>
-
-
-
-				</td>
-				<td>
-					
-
-					<% unless @organization.government_level.blank? %>
+					<% unless @organization.sunshine_phone.blank? %>
 						<p>
 						  <label>Sunshine phone:</label>
 						  <%= @organization.sunshine_phone %>
 						</p>
 					<% end %>
 
-					<% unless @organization.government_level.blank? %>
+					<% unless @organization.sunshine_phone.blank? %>
 						<p>
 						  <label>Sunshine email:</label>
-						  <%= @organization.sunshine_email %>
+						  <%= mail_to @organization.sunshine_email, @organization.sunshine_email %>
 						</p>
 					<% end %>
 
-					<% unless @organization.government_level.blank? %>
-						<p>
-						  <label>Website:</label>
-						  <%= @organization.website %>
-						</p>
-					<% end %>
+					
 
 
 
@@ -102,6 +96,9 @@
 		</table>
 		</div>
 		
+		<div class="description">
+		  <%= @organization.description %>
+		</div>
 		<h3>Data Sets</h3>
 		<% unless @organization.data_sets.blank? %>
 			<div id="data_sets">
@@ -122,8 +119,8 @@
 	</div>
 	
 	
-
-	<% if current_user.admin? %>
+	
+	<% if user_signed_in? and current_user.admin? %>
 	<%= link_to 'Edit', edit_organization_path(@organization) %>
 	<% end %>
 

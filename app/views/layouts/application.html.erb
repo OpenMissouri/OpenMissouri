@@ -12,7 +12,7 @@
   <body>
 		<div class="header_holder clearfix">
 			<div class="header">
-				<div class="logo"><%= image_tag("logo.png")%></div>
+				<div class="logo"><%= link_to image_tag("logo.png", :border => 0), root_path %></div>
 				<%= render 'layouts/navigation' %>
 			</div>
 		</div>

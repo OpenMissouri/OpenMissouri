@@ -1,14 +1,17 @@
 <%= semantic_form_for(resource) do |form| %>
   <%= form.inputs do %>
-    <%= form.input :organization,  :as => :select,      :collection => Organization.find(:all) %>
     <%= form.input :name %>
+		<%= form.input :organization, :as => :select, :collection => Organization.find(:all) %>
+		<%= form.input :category, :as => :select, :collection => Category.find(:all) %>
+		
     <%= form.input :description %>
     <%= form.input :data_format %>
     <%= form.input :cost %>
-    <%= form.input :period_start_date, :as => "date", :label => "Start Date" %>
-    <%= form.input :period_end_date, :as => "date", :label => "End Date" %>
+		<label>Start Date</label>
+    <%= form.input :period_start_date, :as => "date" %>
+    <label>End Date</label>
+		<%= form.input :period_end_date, :as => "date" %>
     <%= form.input :update_frequency %>
-    <%= form.input :category_list %>
 
   <% end %>
 

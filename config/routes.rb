@@ -1,5 +1,9 @@
 Rails3Base::Application.routes.draw do
   
+  resources :categories
+
+  resources :government_levels
+
   resources :data_sets do
     collection do
       get :category
@@ -9,6 +13,8 @@ Rails3Base::Application.routes.draw do
   resources :organizations
   
   match 'about', :to => 'dashboard#about', :as => "about"
+  match 'omteam', :to => 'dashboard#omteam', :as => "omteam"
+  match 'opensource', :to => 'dashboard#opensource', :as => "opensource"
   
   
   devise_for :users,

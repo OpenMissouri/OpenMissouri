@@ -4,7 +4,7 @@
 		<h3>Browse Categories</h3>
 		<ul>
 			<% @categories.each do |category|%>
-				<li><%= link_to category.name, { :action => :category, :id => category.name }%></li>
+				<li><%= link_to category.name, category %></li>
 			<% end %>
 		</ul>		
 		<p>
@@ -25,7 +25,7 @@
 			<td><label>Organization</label></td>
 			<td><label>Source</label></td>
 			<td><label>Released</label></td>
-			<td><label>Avalability</label></td>
+			<td><label>Availability</label></td>
 		</tr>
 	</table>
 </div>

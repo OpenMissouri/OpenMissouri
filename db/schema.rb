@@ -10,7 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110126080615) do
+ActiveRecord::Schema.define(:version => 20110209102008) do
+
+  create_table "admins", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "data_sets", :force => true do |t|
     t.integer  "organization_id"
@@ -26,11 +37,17 @@ ActiveRecord::Schema.define(:version => 20110126080615) do
     t.string   "website"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "category_id"
+  end
+
+  create_table "government_levels", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "organizations", :force => true do |t|
     t.string   "name"
-    t.string   "government_level"
     t.string   "governement_entity_name"
     t.string   "agency_head"
     t.string   "sunshine_contact"
@@ -51,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20110126080615) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "governement_level_id"
   end
 
   create_table "taggings", :force => true do |t|
@@ -79,8 +97,8 @@ ActiveRecord::Schema.define(:version => 20110126080615) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "", :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
+    t.string   "email",                               :default => "",    :null => false
+    t.string   "encrypted_password",   :limit => 128, :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "remember_created_at"
     t.string   "confirmation_token"
@@ -94,6 +112,7 @@ ActiveRecord::Schema.define(:version => 20110126080615) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "full_name"
+    t.boolean  "is_admin",                            :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

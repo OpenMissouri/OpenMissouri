@@ -1,7 +1,7 @@
 <%= semantic_form_for(resource) do |form| %>
   <%= form.inputs do %>
     <%= form.input :name %>
-    <%= form.input :government_level %>
+		<%= form.input :government_level, :as => :select, :collection => GovernmentLevel.find(:all) %>
     <%= form.input :governement_entity_name %>
     <%= form.input :agency_head %>
     <%= form.input :sunshine_contact %>

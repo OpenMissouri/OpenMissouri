@@ -1,10 +1,13 @@
 <p id="notice"><%= notice %></p>
 <div id="sidebar">
-	<div id="sidebar_content" class="clearfix">
-		<h3>Browse Categories</h3>
-		
+	<div id="sidebar_content" class="clearfix">		
 		<p>
-		  <%= link_to 'Add an Agency', new_organization_path, :class => 'button' %>
+			<% if user_signed_in? and current_user.admin? %>
+			
+		  	<%= link_to 'Add an Agency', new_organization_path, :class => 'button' %>
+		
+			<% end %>
+			<%= link_to 'Suggest an Agency', new_organization_path, :class => 'button' %>
 		</p>
 	</div>
 </div>
