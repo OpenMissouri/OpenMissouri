@@ -125,7 +125,7 @@ table.list td.actions a:hover { filter:progid:DXImageTransform.Microsoft.Alpha(o
 .show_link a { background-image: url("/images/icon_view.gif"); }
 
 #content .home_description{ font-size: 14px; line-height: 20px; padding: 20px; border: 1px solid #ddd; background-color: #fcf7e1; margin: 0 0 15px 0;}
-#content .description{ font-size: 14px; line-height: 22px;  margin: 0 0 15px 0;}
+#content .description{ font-size: 14px; line-height: 22px;  margin: 0 0 15px 0px;}
 #content .home_description ul{ padding-left: 15px;}
 #content .home_mission{ font-size: 18px; font-weight:bold; line-height: 24px;}
 
