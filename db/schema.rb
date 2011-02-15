@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110209153222) do
+ActiveRecord::Schema.define(:version => 20110215060258) do
 
   create_table "admins", :force => true do |t|
     t.datetime "created_at"
@@ -23,11 +23,32 @@ ActiveRecord::Schema.define(:version => 20110209153222) do
     t.datetime "updated_at"
   end
 
+  create_table "categories_data_sets", :id => false, :force => true do |t|
+    t.integer  "category_id"
+    t.integer  "data_set_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.string   "title",            :limit => 50, :default => ""
+    t.text     "comment"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
+  add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
   create_table "data_sets", :force => true do |t|
     t.integer  "organization_id"
     t.integer  "user_id"
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.string   "data_format"
     t.string   "cost"
     t.datetime "period_start_date"
@@ -38,6 +59,11 @@ ActiveRecord::Schema.define(:version => 20110209153222) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "category_id"
+    t.string   "documentation_url"
+    t.text     "interest"
+    t.integer  "suggester_id"
+    t.text     "agency_other"
+    t.string   "status",            :default => "unpublished"
   end
 
   create_table "government_levels", :force => true do |t|

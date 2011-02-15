@@ -1,3 +1,3 @@
 class Category < ActiveRecord::Base
-  has_many :data_sets
+  has_and_belongs_to_many :data_sets
 end

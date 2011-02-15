@@ -15,6 +15,7 @@ gem 'will_paginate', '3.0.pre2'
 gem 'hoptoad_notifier'
 gem 'heroku'
 gem 'taps'
+gem 'acts_as_commentable'
 gem 'acts-as-taggable-on'
 
 

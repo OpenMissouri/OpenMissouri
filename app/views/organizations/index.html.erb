@@ -3,11 +3,9 @@
 	<div id="sidebar_content" class="clearfix">		
 		<p>
 			<% if user_signed_in? and current_user.admin? %>
-			
 		  	<%= link_to 'Add an Agency', new_organization_path, :class => 'button' %>
-		
 			<% end %>
-			<%= link_to 'Suggest an Agency', new_organization_path, :class => 'button' %>
+			
 		</p>
 	</div>
 </div>

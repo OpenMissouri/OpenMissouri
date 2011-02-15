@@ -1,17 +1,17 @@
-
 <p id="notice"><%= notice %></p>
 <div id="sidebar">
-	<div id="sidebar_content">
+	<% if user_signed_in? and current_user.admin? %>
+	<p class="clearfix"><%= link_to 'Edit this data set', edit_data_set_path(@data_set), :class => 'button' %></p>
+	<% end %>
+	<div class="sidebar_section_unbound" class="clearfix">
+	
 		<h3>Share this Data Set</h3>
 		<div class="social_menu">
-		<ul>
-			<li class="twitter"><%= link_to "Tweet this", ""%></li>
-			<li class="facebook"><%= link_to "Share on Facebook", ""%></li>
-			<li class="email"><%= link_to "Email a Friend", ""%></li>
-		</ul>
-		<% if user_signed_in? and current_user.admin? %>
-		<%= link_to 'Edit', edit_data_set_path(@data_set) %>
-		<% end %>
+			<ul>
+				<li class="twitter"><%= link_to "Tweet this", ""%></li>
+				<li class="facebook"><%= link_to "Share on Facebook", ""%></li>
+				<li class="email"><%= link_to "Email a Friend", ""%></li>
+			</ul>
 		</div>
 	</div>
 </div>
@@ -23,10 +23,10 @@
 	<% unless @data_set.website.blank? %>
 	<p><b>Website:</b><%= link_to @data_set.website, format_url(@data_set.website) %></p>
 	<% end %>
-	<% if @data_set.category %>
+	<% if @data_set.categories %>
 	<p>
 	  <b>Category:</b>
-	  <%= @data_set.category.name %>
+	  <%= @data_set.categories.collect{|category| category.name}.join(", ") %>
 	</p>
 	<% end %>
 
@@ -81,6 +81,38 @@
 		</div>
 		<div class="description"><%= @data_set.description %></div>
 		
+		<div id="comments">
+			<h3>Comments</h3>
+			
+			
+			
+			<% unless @data_set.comments.blank? %>
+				<div id="comments">
+				<% @data_set.comments.each do |comment|%>
+					<div class="comment">
+						<div class="comment_user"><%= comment.user ? comment.user.full_name : "Anonymous"%> said</div>
+						<div class="comment_text"><%= comment.comment %></div>
+					</div>
+				<% end%>
+				</div>
+				
+			<% else %>
+				<p>There are no comments for this data set.</p>
+			<% end %>
+			<% if user_signed_in? %>
+				<p>Leave a comment below.</p>
+				<%- form_for [@data_set, @comment] do |f|-%>
+				  <p><%= f.text_area :comment -%></p>
+				  <p><%= f.submit -%></p>
+				<%- end -%>
+				
+			
+			<% else%>
+			<p>Please <%= link_to "signup or login", new_session_path(resource_name)%> before commenting on this data set.</p>
+			<% end %>
+			
+		</div>
 	</div>
+
 <div>
 

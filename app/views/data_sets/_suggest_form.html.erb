@@ -1,0 +1,23 @@
+<%= semantic_form_for(resource) do |form| %>
+	<%= form.inputs do %>
+	  <%= form.input :name, :label => "Data Set Name" %>
+		<%= form.input :organization, :as => :select, :collection => Organization.find(:all) %>
+		<%= form.input :categories, :as => :check_boxes, :collection => Category.find(:all) %>
+	
+	  <%= form.input :description %>
+	  <%= form.input :data_format %>
+	  <%= form.input :cost %>
+		<label>Start Date</label>
+	  <%= form.input :period_start_date, :as => "date" %>
+	  <label>End Date</label>
+		<%= form.input :period_end_date, :as => "date" %>
+	  <%= form.input :update_frequency %>
+	  <%= form.input :documentation_url %>
+    <%= form.input :interest, :label => "What's your interest in the data?" %>
+  
+		<%= form.input :suggester_id, :as => :hidden%>
+
+	<% end %>
+
+	<%= form.buttons %> or <%= link_to 'cancel', resource %>
+<% end %>

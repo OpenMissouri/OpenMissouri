@@ -1,16 +1,26 @@
 <p id="notice"><%= notice %></p>
-<div id="sidebar">
-	<div id="sidebar_content" class="clearfix">
+<div id="sidebar" class="clearfix">
+	<div class="sidebar_section_unbound" class="clearfix">
+	  <p class="clearfix">
+		<% if user_signed_in? and current_user.admin? %>
+	  	<%= link_to 'Add a Data Set', new_data_set_path, :class => 'button' %>
+		
+		<% else %>
+			<%= link_to 'Suggest a Data Set', suggest_path, :class => 'button' %>
+			
+		<% end %>
+		</p>
+	</div>
+	
+	<div class="sidebar_section" class="clearfix">
 		<h3>Browse Categories</h3>
 		<ul>
 			<% @categories.each do |category|%>
 				<li><%= link_to category.name, category %></li>
 			<% end %>
 		</ul>		
-		<p>
-		  <%= link_to 'Add a Data Set', new_data_set_path, :class => 'button' %>
-		</p>
 	</div>
+
 </div>
 
 <div id="content" class="clearfix">

@@ -123,7 +123,7 @@ hr.space {
 
 .clearfix {
   display: inline-block; }
-
+	
 /* Hide from IE Mac \*/
 .clearfix {
   display: block; }

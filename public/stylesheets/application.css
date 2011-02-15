@@ -64,11 +64,20 @@ h3{ margin: 0 0 10px 0; padding: 0 0 0 0 ;}
 
 #navigation ul.user{ text-align: right; }
 
-#sidebar{ width: 280px; float: right; background-color: #eee; border: 1px solid #ccc; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
+#sidebar{ width: 280px; float: right;}
+#sidebar .sidebar_section{padding: 15px;  background-color: #eee; border: 1px solid #ccc; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
+#sidebar .sidebar_section_unbound{ margin: 0 0 15px 0; display: block; float:none;}
+
+#sidebar ul{ list-style-type: none; padding: 0; border-top: 1px solid #ccc; }
+#sidebar ul li{  }
+#sidebar ul li a{ display: block; font-size: 12px;  text-decoration: none; padding: 5px 5px 5px 0px; font-weight: bold; border-bottom: 1px solid #ccc;}
+#sidebar ul li a:hover{ text-decoration: underline; }
 
 #sidebar .social_menu ul{ list-style-type: none; padding: 0; margin: 0;}
-#sidebar .social_menu ul li{ padding: 0 0 0 22px; margin: 0; border-bottom: 1px solid #ccc; font-size: 12px;}
-#sidebar .social_menu ul li a{font-size: 12px; }
+#sidebar .social_menu ul li{ padding: 0 0 0 28px; margin: 0; border-bottom: 1px solid #ccc; font-size: 12px;}
+#sidebar .social_menu ul li a{font-size: 12px; border-bottom: 0;}
+#sidebar .social_menu ul li a:hover{ background-color: none;}
+
 #sidebar .social_menu ul li.first{ }
 #sidebar .social_menu ul li.last{ border-bottom: 0;}
 #sidebar .social_menu ul li.selected{ background-color: #ddd;}
@@ -77,20 +86,20 @@ h3{ margin: 0 0 10px 0; padding: 0 0 0 0 ;}
 #sidebar .social_menu ul li.email{ background: transparent url(/images/icons/social/email_16.png) 5px 5px no-repeat;}
 
 
-#content{ width: 620px; float: left; }
-
-div.description{line-height: 18px; margin: 0 0 15px 0; font-size: 14px;}
-
-#sidebar ul{ list-style-type: none; padding: 0; border-top: 1px solid #ccc; }
-#sidebar ul li{  }
-#sidebar ul li a{ display: block; font-size: 12px;  text-decoration: none; padding: 5px 5px 5px 0px; font-weight: bold; border-bottom: 1px solid #ccc;}
-#sidebar ul li a:hover{ text-decoration: underline; background-color: #ddd;}
-
-#sidebar_content{padding: 15px;}
+#sidebar_content{}
 #sidebar_profile{padding: 15px;}
 #sidebar_profile { border-bottom: 1px solid #ccc;}
 #sidebar_profile .timeline_item { border-width: 1px 1px 0px 1px; border-color: #ccc; border-style: solid; padding: 6px 8px 6px 8px; background-color: #fff; line-height: 16px; color: #404040;}
 #sidebar_profile .tweet{ }
+
+#content{ width: 620px; float: left; }
+
+div.description{line-height: 18px; margin: 0 0 15px 0; font-size: 14px;}
+
+#comments{}
+#comments .comment{} 
+#comments .comment .comment_user{ font-weight: bold; margin: 0 0 5px 0;} 
+#comments .comment .comment_text{ line-height: 18px; margin: 0 0 15px 0;} 
 
 .summary_box{ padding: 15px 15px 5px 15px; border: 1px solid #ccc; background-color: #fcf7e1; margin: 0 0 15px 0; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
 .summary_box table{ vertical-align: top; border: 0; margin: 0;}
@@ -129,6 +138,7 @@ table.list td.actions a:hover { filter:progid:DXImageTransform.Microsoft.Alpha(o
 #content .home_description ul{ padding-left: 15px;}
 #content .home_mission{ font-size: 18px; font-weight:bold; line-height: 24px;}
 
+.form_admin_only{ padding: 15px; background-color: #ccc; }
 
 a.button, fieldset.buttons input { background: url("/images/button_bg.gif") bottom left repeat-x; border:0; height:32px; overflow:visible; cursor:pointer; border:solid 1px #d2d2d2; line-height:30px; padding: 0 10px; font-weight:bold; text-shadow: 1px 1px #fff; border-radius:3px; -khtml-border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; margin:0; text-transform:uppercase; color:#000; text-decoration:none; }
 a.button:hover, fieldset.buttons input:hover { color:#555; }
@@ -154,4 +164,4 @@ form abbr { color:red; font-size:1.2em; margin-left:.2em; }
 .pagination em { background: #f0f0f0; padding: 0 5px; -moz-border-radius:6px; -webkit-border-radius:6px; border-radius:6px; margin: 0 2px; border: solid 1px #ddd; }
 #session_new { width: 400px; }
 
-.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+/*.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }*/

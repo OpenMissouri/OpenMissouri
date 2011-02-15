@@ -9,7 +9,9 @@ class User < ActiveRecord::Base
 
   has_many :organizations
   has_many :data_sets
-
+  has_many :suggested_data_sets, :class_name => "DataSet"
+  has_many :comments
+  
   def full_name_with_email
     "#{self[:full_name]} (#{email})"
   end

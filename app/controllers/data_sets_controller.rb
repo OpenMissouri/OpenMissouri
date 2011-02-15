@@ -1,4 +1,6 @@
 class DataSetsController < ApplicationController
+  before_filter :authenticate_user!, {:only => [:suggest]}
+  before_filter :authenticate_admin, {:only => [:new, :edit, :destroy, :create, :destroy]}
   inherit_resources
   
   def index
@@ -12,6 +14,17 @@ class DataSetsController < ApplicationController
     index!
   end
   
+  def show
+    @data_set = DataSet.find(params[:id])
+    @comment = @data_set.comments.new
+    show!
+  end
+  
+  def suggest
+    @data_set = DataSet.new
+    @data_set.suggester = current_user
+    new!
+  end
   
   protected
 
