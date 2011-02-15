@@ -18,6 +18,11 @@ Rails3Base::Application.routes.draw do
   resources :categories
   resources :government_levels
   
+  #admin routes
+  match 'admin/users', :to => 'admin#users', :as => "admin_users"
+  match 'admin/make_user_admin/:id', :to => 'admin#make_user_admin', :as => "make_user_admin"
+    
+  #about routes
   match 'about', :to => 'dashboard#about', :as => "about"
   match 'omteam', :to => 'dashboard#omteam', :as => "omteam"
   match 'opensource', :to => 'dashboard#opensource', :as => "opensource"

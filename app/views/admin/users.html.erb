@@ -1,0 +1,19 @@
+<% unless @users.blank? %>
+		<table cellspacing="0" cellpadding="0" border="0">
+  	<% @users.each do |user| %>
+			<tr>
+			<td><%= user.full_name %></td>
+			<td>
+			<% if user.is_admin? %>
+			<%= link_to "Remove Admin", make_user_admin_path(user.id)%>
+			<% else %>
+			<%= link_to "Make Admin", make_user_admin_path(user.id)%>
+			<% end %>
+			</td>	
+			</tr>
+		<% end%>
+		</table>
+<% else %>
+  <p>Now it's time to create some data here. To create new entry, please use the button below.</p>
+  <br /><br />
+<% end %>
