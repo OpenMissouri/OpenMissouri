@@ -74,7 +74,7 @@ h3{ margin: 0 0 10px 0; padding: 0 0 0 0 ;}
 #sidebar ul li a:hover{ text-decoration: underline; }
 
 #sidebar .social_menu ul{ list-style-type: none; padding: 0; margin: 0;}
-#sidebar .social_menu ul li{ padding: 0 0 0 28px; margin: 0; border-bottom: 1px solid #ccc; font-size: 12px;}
+#sidebar .social_menu ul li{ padding: 0 0 0px 28px; margin: 0; border-bottom: 1px solid #ccc; font-size: 12px;}
 #sidebar .social_menu ul li a{font-size: 12px; border-bottom: 0;}
 #sidebar .social_menu ul li a:hover{ background-color: none;}
 
