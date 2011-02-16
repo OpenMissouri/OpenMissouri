@@ -1,3 +1,11 @@
+
+<p id="notice"><%= notice %></p>
+<div id="sidebar" class="clearfix">
+	<%= render "/admin/sidebar"%>
+</div>
+
+<div id="content" class="clearfix">
+
 <% title 'Listing categories' %>
 
 <% unless @categories.blank? %>
@@ -14,3 +22,4 @@
   <%= link_to 'New Category', new_category_path, :class => 'button' %>
 </p>
 
+</div>

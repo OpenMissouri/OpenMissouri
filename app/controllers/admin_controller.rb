@@ -1,6 +1,10 @@
 class AdminController < ApplicationController
   #before_filter :authenticate_admin
   
+  def index
+    @new_data_sets = DataSet.find(:all, :conditions => {:status => "unpublished"})
+  end
+  
   def users
     @users = User.find(:all, :order => "full_name")
   end

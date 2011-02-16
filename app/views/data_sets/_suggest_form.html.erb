@@ -12,7 +12,7 @@
 	  <label>End Date</label>
 		<%= form.input :period_end_date, :as => "date" %>
 	  <%= form.input :update_frequency %>
-	  <%= form.input :documentation_url %>
+	  <%= form.input :documentation_url, :as => :string %>
     <%= form.input :interest, :label => "What's your interest in the data?" %>
   
 		<%= form.input :suggester_id, :as => :hidden%>

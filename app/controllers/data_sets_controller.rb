@@ -1,6 +1,6 @@
 class DataSetsController < ApplicationController
-  before_filter :authenticate_user!, {:only => [:suggest]}
-  before_filter :authenticate_admin, {:only => [:new, :edit, :destroy, :create, :destroy]}
+  before_filter :authenticate_user!, {:only => [:suggest, :create]}
+  before_filter :authenticate_admin, {:only => [:new, :edit, :destroy]}
   inherit_resources
   
   def index
@@ -18,6 +18,17 @@ class DataSetsController < ApplicationController
     @data_set = DataSet.find(params[:id])
     @comment = @data_set.comments.new
     show!
+  end
+  
+  def create
+    @data_set = DataSet.new(params[:data_set])
+    redirect_url = @data_set.suggester ? suggest_thanks_path : nil
+    create!{redirect_url}
+  end
+  
+  def thanks
+    @categories = Category.find(:all, :order => "name")
+    #we should send an email out the suggester and the admin 
   end
   
   def suggest

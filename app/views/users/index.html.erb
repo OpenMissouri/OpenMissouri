@@ -5,11 +5,11 @@
 
 <div id="content" class="clearfix">
 
-<% title 'Listing government_levels' %>
+<% title 'Users' %>
 
-<% unless @government_levels.blank? %>
-  <%= table_for(@government_levels) %>
-  <%= will_paginate(@government_levels) %>
+<% unless @users.blank? %>
+  <%= table_for(@users) %>
+  <%= will_paginate(@users) %>
 <% else %>
   <p>Now it's time to create some data here. To create new entry, please use the button below.</p>
   <br /><br />
@@ -18,7 +18,7 @@
 <br />
 
 <p>
-  <%= link_to 'New Government level', new_government_level_path, :class => 'button' %>
+  <%= link_to 'User', new_user_path, :class => 'button' %>
 </p>
 
 </div>

@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <div id="sidebar" class="clearfix">
 	<div class="sidebar_section_unbound" class="clearfix">
 	  <p class="clearfix">
@@ -24,28 +23,15 @@
 </div>
 
 <div id="content" class="clearfix">
+	
 
-	<% title @category.name %>
+<% title 'Thanks for Suggesting a Data Set' %>
 
-	<div class="filter_box" style="display: none;">
-		<table cellspacing="0" cellpadding="0" border="0">
-			<tr>
-				<td><label>Jurisdication</label></td>
-				<td><label>Organization</label></td>
-				<td><label>Source</label></td>
-				<td><label>Released</label></td>
-				<td><label>Availability</label></td>
-			</tr>
-		</table>
-	</div>
+<p>We have received your suggestion and will review it as soon as we can.  Thanks for your suggestion!</p>
 
-	<% unless @category.data_sets.blank? %>
-		<div id="data_list">
-			<%= render @category.data_sets %>
-		</div>
-	<% else %>
-		<p>We were not able to find any data sets for <%= @category.name%>.</p>
-	<% end %>
+
+<br />
+
 
 
 </div>

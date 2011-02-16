@@ -2,7 +2,7 @@
 
 <%= semantic_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:id => :session_new}) do |form| %>
   <%= form.inputs do %>
-    <%= form.input :email, :required => true %>
+    <%= form.input :email, :required => true, :as => :string %>
     <%= form.input :password, :required => true %>
     <%= form.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
   <% end %>

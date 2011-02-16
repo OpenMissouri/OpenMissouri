@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+<div id="sidebar" class="clearfix">
+	<%= render "/admin/sidebar"%>
+</div>
+
+<div id="content" class="clearfix">
+	
+
+<% title 'OpenMissouri Administration : Home' %>
+
+
+<h3>Unpublished Data Sets</h3>
+<% unless @new_data_sets.blank? %>
+	<table cellspacing="0" cellpadding="0" border="0">
+		<% @new_data_sets.each do |data_set| %>
+			<tr>
+				<td><%= link_to data_set.name, data_set_path(data_set) %></td>
+				<td><% unless data_set.organization.blank? %><%= link_to data_set.organization.name, organization_path(data_set.organization) %><% end %></td>
+				<td><% unless data_set.suggester.blank? %><%= link_to data_set.suggester.full_name, "" %><% end %></td>
+			</tr>
+		<% end %>
+	</table>
+	<% else %>
+	<p>We were not able to find any data sets for you.</p>
+<% end %>
+
+
+
+
+<br />
+
+
+
+</div>
