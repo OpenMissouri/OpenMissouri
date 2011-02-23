@@ -8,9 +8,9 @@
 	  <%= form.input :data_format %>
 	  <%= form.input :cost %>
 		<label>Start Date</label>
-	  <%= form.input :period_start_date, :as => "date" %>
+	  <%= form.input :period_start_date, :as => "date", :start_year => 1980, :end_year => Time.now.year %>
 	  <label>End Date</label>
-		<%= form.input :period_end_date, :as => "date" %>
+		<%= form.input :period_end_date, :as => "date", :start_year => 1980, :end_year => Time.now.year %>
 	  <%= form.input :update_frequency %>
 	  <%= form.input :documentation_url, :as => :string %>
     <%= form.input :interest, :label => "What's your interest in the data?" %>
