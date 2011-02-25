@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/sferik/rails_admin.git
+  revision: 5c5228e2fd9639e84ad5c30770c5ef6f6ef35c63
+  specs:
+    rails_admin (0.0.1)
+      builder (~> 2.1.0)
+      rails (~> 3.0.3)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -286,6 +294,7 @@ DEPENDENCIES
   omniauth (= 0.1.6)
   rails (= 3.0.3)
   rails3-generators (= 0.14.0)
+  rails_admin!
   rails_best_practices (= 0.4.5)
   rcov (= 0.9.9)
   redgreen (= 1.2.2)

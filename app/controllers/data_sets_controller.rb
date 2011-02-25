@@ -5,6 +5,7 @@ class DataSetsController < ApplicationController
   
   def index
     @categories = Category.find(:all, :order => "name")
+    @data_sets = DataSet.paginate :page => params[:page], :conditions => {:status => "published"}, :order => 'name', :per_page => 20
     index!
   end
   

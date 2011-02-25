@@ -17,9 +17,11 @@
     <%= form.input :postal_code %>
     <%= form.input :notes %>
     <%= form.input :fax, :as => "string" %>
+		<%= form.input :status, :as => :select, :collection => ["unpublished", "published", "archived"] %>
+
     <p><%#= form.input :accepts_email_requests %></p>
 
   <% end %>
 
-  <%= form.buttons %> or <%= link_to 'cancel', resource %>
+  <%= form.buttons %> or <%= link_to 'cancel', resource %> | <%= link_to 'Delete agency', @organization, :confirm => 'Are you sure?', :method => :delete %>
 <% end %>

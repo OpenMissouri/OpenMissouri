@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110215060258) do
+ActiveRecord::Schema.define(:version => 20110225100248) do
 
   create_table "admins", :force => true do |t|
     t.datetime "created_at"
@@ -95,7 +95,21 @@ ActiveRecord::Schema.define(:version => 20110215060258) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "government_level_id"
+    t.string   "status",                  :default => "published"
   end
+
+  create_table "rails_admin_histories", :force => true do |t|
+    t.string   "message"
+    t.string   "username"
+    t.integer  "item"
+    t.string   "table"
+    t.integer  "month",      :limit => 2
+    t.integer  "year",       :limit => 8
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_histories_on_item_and_table_and_month_and_year"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"

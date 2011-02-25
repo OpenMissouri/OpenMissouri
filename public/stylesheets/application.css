@@ -65,7 +65,7 @@ h3{ margin: 0 0 10px 0; padding: 0 0 0 0 ;}
 #navigation ul.user{ text-align: right; }
 
 #sidebar{ width: 280px; float: right;}
-#sidebar .sidebar_section{padding: 15px;  background-color: #eee; border: 1px solid #ccc; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
+#sidebar .sidebar_section{padding: 15px; background-color: #eee; border: 1px solid #ccc; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
 #sidebar .sidebar_section_unbound{ margin: 0 0 15px 0; display: block; float:none;}
 
 #sidebar ul{ list-style-type: none; padding: 0; border-top: 1px solid #ccc; }
@@ -84,6 +84,7 @@ h3{ margin: 0 0 10px 0; padding: 0 0 0 0 ;}
 #sidebar .social_menu ul li.twitter{ background: transparent url(/images/icons/social/twitter_16.png) 5px 5px no-repeat;}
 #sidebar .social_menu ul li.facebook{ background: transparent url(/images/icons/social/facebook_16.png) 5px 5px no-repeat;}
 #sidebar .social_menu ul li.email{ background: transparent url(/images/icons/social/email_16.png) 5px 5px no-repeat;}
+#sidebar .social_menu ul li.printer{ background: transparent url(/images/icons/printer_16.png) 5px 5px no-repeat;}
 
 
 #sidebar_content{}

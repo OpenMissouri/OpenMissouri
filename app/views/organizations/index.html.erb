@@ -4,6 +4,9 @@
 		<p>
 			<% if user_signed_in? and current_user.admin? %>
 		  	<%= link_to 'Add an Agency', new_organization_path, :class => 'button' %>
+			<% else %>
+			<%= link_to 'Suggest a Data Set', suggest_path, :class => 'button' %>
+		
 			<% end %>
 			
 		</p>

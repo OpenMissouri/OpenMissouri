@@ -12,7 +12,9 @@
     <label>End Date</label>
 		<%= form.input :period_end_date, :as => "date", :start_year => 1980, :end_year => Time.now.year %>
     <%= form.input :update_frequency %>
-    <%= form.input :documentation_url %>
+    <%= form.input :documentation_url, :as => :string  %>
+    <%= form.input :tag_list %>
+
 
 		<div class="form_admin_only">
 			<h3>Admin Only</h3>
@@ -22,5 +24,5 @@
 
   <% end %>
 
-  <%= form.buttons %> or <%= link_to 'cancel', resource %>
+  <%= form.buttons %> or <%= link_to 'cancel', resource %> | <%= link_to 'Delete data set', @data_set, :confirm => 'Are you sure?', :method => :delete %>
 <% end %>

@@ -3,7 +3,7 @@ class DashboardController < ApplicationController
 
   def index
     @categories = Category.find(:all, :order => "name")
-    @data_sets = DataSet.find(:all, :order => "created_at desc")
+    @data_sets = DataSet.find(:all, :conditions => {:status => "published"}, :order => "created_at desc", :limit => 30)
   end
   
   def about

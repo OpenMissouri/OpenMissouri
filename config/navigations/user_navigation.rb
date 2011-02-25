@@ -6,7 +6,7 @@ SimpleNavigation::Configuration.run do |navigation|
 
     if user_signed_in?
       if current_user.admin? 
-        user.item :admin, 'Admin', admin_path
+        user.item :admin, 'Admin', '/admin'
   		end
       user.item :account, current_user.full_name, edit_user_registration_path
       user.item :sign_out, 'Sign out', destroy_user_session_path

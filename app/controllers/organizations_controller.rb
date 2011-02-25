@@ -1,6 +1,11 @@
 class OrganizationsController < ApplicationController
   inherit_resources
-
+  
+  def index
+    @organizations = Organization.paginate :page => params[:page], :conditions => {:status => "published"}, :order => 'name', :per_page => 20
+    index!
+  end
+  
   protected
 
   def collection

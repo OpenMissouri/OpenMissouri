@@ -1,7 +1,10 @@
-
 <p id="notice"><%= notice %></p>
 <div id="sidebar">
-	<div id="sidebar_content">
+	<% if user_signed_in? and current_user.admin? %>
+		<p class="clearfix"><%= link_to 'Edit agency', edit_organization_path(@organization), :class => 'button' %></p>
+	<% end %>
+	<div class="sidebar_section_unbound" class="clearfix">
+	
 		<h3>Share this Agency</h3>
 		<div class="social_menu">
 		<ul>
@@ -120,9 +123,6 @@
 	
 	
 	
-	<% if user_signed_in? and current_user.admin? %>
-	<%= link_to 'Edit', edit_organization_path(@organization) %>
-	<% end %>
 
 <div>
 

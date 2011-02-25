@@ -1,0 +1,30 @@
+@import url("application.css");
+
+body{ font-family: arial;}
+
+ /* Remove unwanted elements */
+.header_holder, .footer_holder, #sidebar, .noprint
+{
+display: none;
+}
+
+/* Ensure the content spans the full width */
+#content
+{
+width: 100%; margin: 0; float: none;
+}
+
+/* Improve colour contrast of links */
+a:link, a:visited
+{
+color: #781351
+}
+
+#content p{margin: 0 0 15px 0; line-height: 16px;}
+#sidebar p{margin: 0 0 15px 0; line-height: 16px;}
+
+#data_list{ border-top: 3px solid #404040; padding-top: 15px;}
+#data_list .data_item{ background-color: #fff; padding: 0 0 10px 0; margin: 0 0 10px 0; border-bottom: 1px solid #bbb;}
+#data_list .data_item h3{ margin-bottom: 5px;}
+#data_list .data_item p{ margin: 0 0 5px 0;}
+

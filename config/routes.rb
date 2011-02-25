@@ -18,9 +18,9 @@ Rails3Base::Application.routes.draw do
   
   
   #admin routes
-  match 'admin', :to => 'admin#index', :as => "admin"
-  match 'admin/users', :to => 'admin#users', :as => "admin_users"
-  match 'admin/make_user_admin/:id', :to => 'admin#make_user_admin', :as => "make_user_admin"
+  #match 'admin', :to => 'admin#index', :as => "admin"
+  #match 'admin/users', :to => 'admin#users', :as => "admin_users"
+  #match 'admin/make_user_admin/:id', :to => 'admin#make_user_admin', :as => "make_user_admin"
     
   #about routes
   match 'about', :to => 'dashboard#about', :as => "about"
