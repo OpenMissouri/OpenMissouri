@@ -38,10 +38,14 @@ h3{ margin: 0 0 10px 0; padding: 0 0 0 0 ;}
 #content p{margin: 0 0 15px 0; line-height: 16px;}
 #sidebar p{margin: 0 0 15px 0; line-height: 16px;}
 
-#data_list{ border-top: 3px solid #404040; padding-top: 15px;}
-#data_list .data_item{ background-color: #fff; padding: 0 0 10px 0; margin: 0 0 10px 0; border-bottom: 1px solid #bbb;}
-#data_list .data_item h3{ margin-bottom: 5px;}
-#data_list .data_item p{ margin: 0 0 5px 0;}
+a.rss{ display: block; padding: 1px 0 0 22px; background: transparent url(/images/icons/social/rss_16.png) left top no-repeat; height: 16px;}
+
+.data_list{ border-top: 3px solid #404040; padding-top: 15px;}
+.data_list .data_item{ background-color: #fff; padding: 0 0 10px 0; margin: 0 0 10px 0; border-bottom: 1px solid #bbb;}
+.data_list .data_item h3{ margin-bottom: 5px;}
+.data_list .data_item p{ margin: 0 0 5px 0;}
+.data_list .data_item .organization{ margin: 0 0 5px 0;}
+.data_list .data_item .categories{ margin: 0 0 5px 0;}
 
 .page_subtitle{ font-weight: bold; margin: 0 0 15px 0; font-size: 16px;}
 
@@ -65,7 +69,7 @@ h3{ margin: 0 0 10px 0; padding: 0 0 0 0 ;}
 #navigation ul.user{ text-align: right; }
 
 #sidebar{ width: 280px; float: right;}
-#sidebar .sidebar_section{padding: 15px; background-color: #eee; border: 1px solid #ccc; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
+#sidebar .sidebar_section{padding: 15px; background-color: #eee; border: 1px solid #ccc; -moz-border-radius: 5px; -webkit-border-radius: 5px; margin-bottom: 15px;}
 #sidebar .sidebar_section_unbound{ margin: 0 0 15px 0; display: block; float:none;}
 
 #sidebar ul{ list-style-type: none; padding: 0; border-top: 1px solid #ccc; }

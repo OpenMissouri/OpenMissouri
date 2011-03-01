@@ -6,7 +6,11 @@ class DataSetsController < ApplicationController
   def index
     @categories = Category.find(:all, :order => "name")
     @data_sets = DataSet.paginate :page => params[:page], :conditions => {:status => "published"}, :order => 'name', :per_page => 20
-    index!
+    #index!
+    respond_to do |format|
+      format.html
+      format.rss { render :layout => false } #index.rss.builder
+    end
   end
   
   def category
@@ -20,6 +24,16 @@ class DataSetsController < ApplicationController
     @comment = @data_set.comments.new
     show!
   end
+  
+  def feed
+      @data_sets = DataSet.all(:order => "created_at DESC", :limit => 20) 
+
+      respond_to do |format|
+        format.html
+        format.rss { render :layout => false } #index.rss.builder
+      end
+  end
+  
   
   def create
     @data_set = DataSet.new(params[:data_set])
