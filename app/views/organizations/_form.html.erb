@@ -7,7 +7,8 @@
     <%= form.input :sunshine_contact %>
     <%= form.input :sunshine_title %>
     <%= form.input :sunshine_phone, :as => "string" %>
-    <%= form.input :sunshine_email, :as => "string" %>
+    <%= form.input :accepts_email_requests%>
+		<%= form.input :description %>
     <%= form.input :website, :as => "string" %>
     <%= form.input :description %>
     <%= form.input :address1 %>
@@ -18,6 +19,8 @@
     <%= form.input :notes %>
     <%= form.input :fax, :as => "string" %>
 		<%= form.input :status, :as => :select, :collection => ["unpublished", "published", "archived"] %>
+
+
 
     <p><%#= form.input :accepts_email_requests %></p>
 

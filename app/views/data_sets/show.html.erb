@@ -91,34 +91,35 @@
 		<div class="description"><%= @data_set.description %></div>
 		
 		<div id="comments">
-			<h3>Comments</h3>
+			<div id="disqus_thread"></div>
+			<script type="text/javascript">
+			    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+			    var disqus_shortname = 'openmissouri'; // required: replace example with your forum shortname
+
+			    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+			    // var disqus_identifier = 'unique_dynamic_id_1234';
+			    // var disqus_url = 'http://example.com/permalink-to-page.html';
+
+			    /* * * DON'T EDIT BELOW THIS LINE * * */
+			    (function() {
+			        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+			        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			    })();
+			</script>
+			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+			<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 			
 			
 			
-			<% unless @data_set.comments.blank? %>
-				<div id="comments">
-				<% @data_set.comments.each do |comment|%>
-					<div class="comment">
-						<div class="comment_user"><%= comment.user ? comment.user.full_name : "Anonymous"%> said</div>
-						<div class="comment_text"><%= comment.comment %></div>
-					</div>
-				<% end%>
-				</div>
-				
-			<% else %>
-				<p>There are no comments for this data set.</p>
-			<% end %>
-			<% if user_signed_in? %>
-				<p>Leave a comment below.</p>
-				<%- form_for [@data_set, @comment] do |f|-%>
-				  <p><%= f.text_area :comment -%></p>
-				  <p><%= f.submit -%></p>
-				<%- end -%>
 			
 			
-			<% else%>
-			<p>Please <%= link_to "signup or login", new_session_path(User)%> before commenting on this data set.</p>
-			<% end %>
+			
+			
+			
+			
+			
+			
 			
 		</div>
 	</div>

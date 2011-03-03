@@ -1,8 +1,8 @@
 <%= semantic_form_for(resource) do |form| %>
 	<%= form.inputs do %>
 	  <%= form.input :name, :label => "Data Set Name" %>
-		<%= form.input :organization, :as => :select, :collection => Organization.find(:all) %>
-		<%= form.input :categories, :as => :check_boxes, :collection => Category.find(:all) %>
+		<%= form.input :organization, :as => :select, :collection => Organization.find(:all, :order => "name") %>
+		<%= form.input :categories, :as => :check_boxes, :collection => Category.find(:all, :order => "name") %>
 	
 	  <%= form.input :description %>
 	  <%= form.input :data_format %>

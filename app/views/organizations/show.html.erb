@@ -94,6 +94,13 @@
 						  <%= mail_to @organization.sunshine_email, @organization.sunshine_email %>
 						</p>
 					<% end %>
+					
+						<p>
+						  <label>Accepts email requests?</label>
+						<%= @organization.accepts_email_requests ? 'Yes' : 'No' %>
+							
+						</p>
+					
 
 					
 

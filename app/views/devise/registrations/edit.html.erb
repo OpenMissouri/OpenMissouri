@@ -2,9 +2,21 @@
 
 <%= semantic_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |form| %>
   <%= form.inputs do %>
-    <%= form.input :full_name, :required => true %>
+    <%= form.input :first_name, :required => true %>
+		<%= form.input :last_name, :required => true %>
     <%= form.input :email, :required => true %>
-    <%= form.input :password, :required => true, :hint => "leave blank if you don't want to change it" %>
+		<%= form.input :position %>
+		<%= form.input :affiliation, :label => "Agency or Organization Affiliation" %>
+		<%= form.input :website %>
+		<%= form.input :twitter, :label => "Twitter Username" %>
+		<%= form.input :street1 %>
+		<%= form.input :street2 %>
+		<%= form.input :city %>
+		<%= form.input :state %>
+		<%= form.input :postal_code %>
+
+    
+		<%= form.input :password, :required => true, :hint => "leave blank if you don't want to change it" %>
     <%= form.input :password_confirmation, :required => true %>
     <% if resource.password_stored? %>
       <%= form.input :current_password, :required => true, :hint => "we need your current password to confirm your changes" %>

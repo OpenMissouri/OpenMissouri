@@ -4,8 +4,11 @@ class User < ActiveRecord::Base
 
   include User::OmniAuthExtension
 
-  attr_accessible :full_name, :email, :password, :password_confirmation
-  validates :full_name, :presence => true
+  attr_accessible :full_name, :email, :password, :password_confirmation, :first_name, :last_name, :position, :affiliation, :website, :twitter, :street1, :street2, :city, :state, :postal_code, :agency_id
+  validates :first_name, :presence => true
+
+
+
 
   has_many :organizations
   has_many :data_sets
@@ -16,7 +19,12 @@ class User < ActiveRecord::Base
     "#{self[:full_name]} (#{email})"
   end
   
+  def full_name
+    "#{self[:first_name]} #{self[:last_name]}"
+  end
+
   def admin?
     self.is_admin ? true :  false
   end  
 end
+

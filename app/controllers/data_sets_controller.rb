@@ -4,8 +4,8 @@ class DataSetsController < ApplicationController
   inherit_resources
   
   def index
-    @categories = Category.find(:all, :order => "name")
-    @data_sets = DataSet.paginate :page => params[:page], :conditions => {:status => "published"}, :order => 'name', :per_page => 20
+    @data_sets = DataSet.paginate :page => params[:page], :conditions => {:status => "published"}, :order => "created_at desc", :per_page => 20
+    @categories = Category.find(:all, :conditions => "id in (#{@data_sets.collect{|data_set| data_set.categories.collect{|category| category.id}}.flatten.join(",")})", :order => "name")    
     #index!
     respond_to do |format|
       format.html

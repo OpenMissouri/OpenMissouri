@@ -31,11 +31,12 @@ table{ border: 0;}
 table td{ border: 0;}
 
 
+
 h1{ font-size: 24px; font-weight: bold; margin: 0 0 15px 0; padding: 0;}
 h3{ margin: 0 0 10px 0; padding: 0 0 0 0 ;}
 #sidebar h3{ margin: 0 0 10px 0; padding: 0 0 0 0 ; font-size: 14px;}
 
-#content p{margin: 0 0 15px 0; line-height: 16px;}
+#content p{margin: 0 0 10px 0; line-height: 20px;}
 #sidebar p{margin: 0 0 15px 0; line-height: 16px;}
 
 a.rss{ display: block; padding: 1px 0 0 22px; background: transparent url(/images/icons/social/rss_16.png) left top no-repeat; height: 16px;}
