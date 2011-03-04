@@ -1,4 +1,4 @@
-body { background: #eee url(/images/header_bg.jpg) top left repeat-x;}
+body { background: #e0dcc2 url(/images/header_bg.jpg) top left repeat-x;}
 .header_holder {
   margin: 22px auto 10px auto;
   width: 960px;
@@ -38,6 +38,8 @@ h3{ margin: 0 0 10px 0; padding: 0 0 0 0 ;}
 
 #content p{margin: 0 0 10px 0; line-height: 20px;}
 #sidebar p{margin: 0 0 15px 0; line-height: 16px;}
+
+#content .tagline{ margin: 0 0 15px 0; padding: 15px; font-family: georgia; font-size: 20px; color: #593d28; background-color: #fff5a5;  border: 2px solid #ffec56;}
 
 a.rss{ display: block; padding: 1px 0 0 22px; background: transparent url(/images/icons/social/rss_16.png) left top no-repeat; height: 16px;}
 

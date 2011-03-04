@@ -6,6 +6,12 @@ class OrganizationsController < ApplicationController
     index!
   end
   
+  def show
+    @organization = Organization.find(params[:id])
+    #@data_sets = @organization.published_data_sets
+    show!
+  end
+  
   protected
 
   def collection

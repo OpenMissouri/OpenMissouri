@@ -4,7 +4,7 @@ class DashboardController < ApplicationController
   def index
     #@categories = 
     @data_sets = DataSet.find(:all, :conditions => {:status => "published"}, :order => "created_at desc", :limit => 10)
-    @categories = Category.find(:all, :conditions => "id in (#{@data_sets.collect{|data_set| data_set.categories.collect{|category| category.id}}.flatten.join(",")})", :order => "name")
+    @categories = Category.published_categories
   end
   
   def about

@@ -14,17 +14,22 @@
 			</div>
 			<h3>OpenMissouri News</h3>
 			<p>News posts will go here.</p>
-			<h3>Browse Categories</h3>
-			<ul>
-				<% @categories.each do |category|%>
-					<li><%= link_to category.name, category %></li>
-				<% end %>
-			</ul>
+			<div class="sidebar_section" class="clearfix">
+
+				<h3>Browse Categories</h3>
+				<ul>
+					<% @categories.each do |category|%>
+						<li><%= link_to category.name, category %></li>
+					<% end %>
+				</ul>
+			</div>
+
 			<%= render :partial => "dashboard/email_subscription_form"%>
 		</div>
 	</div>
 
 	<div id="content" class="clearfix">
+		<div class="tagline">Connecting you to Missouri's state and local government data.</div>
 		
 		<script src="/javascripts/swfobject.js" type="text/javascript"></script>
 		<div id="flashcontent"></div>

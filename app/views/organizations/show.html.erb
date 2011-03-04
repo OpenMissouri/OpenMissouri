@@ -100,12 +100,6 @@
 						<%= @organization.accepts_email_requests ? 'Yes' : 'No' %>
 							
 						</p>
-					
-
-					
-
-
-
 				</td>
 			</tr>
 		</table>
@@ -115,9 +109,9 @@
 		  <%= @organization.description %>
 		</div>
 		<h3>Data Sets</h3>
-		<% unless @organization.data_sets.blank? %>
+		<% unless @organization.published_data_sets.blank? %>
 			<div id="data_sets">
-			<% @organization.data_sets.each do |data_set| %>
+			<% @organization.published_data_sets.each do |data_set| %>
 				<div class="data_set">
 					<h3><%= link_to data_set.name, data_set %></h3>
 					<p><% unless data_set.description.blank?  %>

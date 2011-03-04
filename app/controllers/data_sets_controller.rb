@@ -5,7 +5,7 @@ class DataSetsController < ApplicationController
   
   def index
     @data_sets = DataSet.paginate :page => params[:page], :conditions => {:status => "published"}, :order => "created_at desc", :per_page => 20
-    @categories = Category.find(:all, :conditions => "id in (#{@data_sets.collect{|data_set| data_set.categories.collect{|category| category.id}}.flatten.join(",")})", :order => "name")    
+    @categories = Category.published_categories
     #index!
     respond_to do |format|
       format.html
