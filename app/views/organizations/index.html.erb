@@ -23,7 +23,7 @@
 	<% @organizations.each do |organization| %>
 		<div class="data_item">
 			<h3><%= link_to organization.name, organization_path(organization) %></h3>
-			<p><%= organization.data_sets.size %> data sets</p>
+			<p><%= organization.published_data_sets.size %> data sets</p>
 			<p><% unless organization.description.blank?  %>
 	      <%= first_x_words(strip_tags(organization.description),30,'...') %>
 	    	<% end %> </p>
