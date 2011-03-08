@@ -39,10 +39,12 @@
 		</table>
 	</div>
 
-	<% unless @category.data_sets.blank? %>
+	<% unless @data_sets.blank? %>
 		<div id="data_list">
-			<%= render @category.data_sets %>
+			<%= render @data_sets %>
 		</div>
+		<%= will_paginate(@data_sets) %>
+	  
 	<% else %>
 		<p>We were not able to find any data sets for <%= @category.name%>.</p>
 	<% end %>

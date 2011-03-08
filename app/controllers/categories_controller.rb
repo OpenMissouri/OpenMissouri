@@ -3,6 +3,9 @@ class CategoriesController < ApplicationController
   
   def show
     @categories = Category.published_categories    
+    @category = Category.find(params[:id])
+    @data_sets = @category.data_sets.paginate :page => params[:page], :conditions => {:status => "published"}, :order => 'data_sets.created_at desc', :per_page => 20
+    
     show!
   end
   

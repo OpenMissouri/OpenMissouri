@@ -9,7 +9,7 @@ class OrganizationsController < ApplicationController
   def show
     @organization = Organization.find(params[:id])
     #@data_sets = @organization.published_data_set
-    @data_sets = @organization.data_sets.paginate :page => params[:page], :conditions => {:status => "published"}, :order => 'name', :per_page => 20
+    @data_sets = @organization.data_sets.paginate :page => params[:page], :conditions => {:status => "published"}, :order => 'data_sets.created_at desc', :per_page => 20
     show!
   end
   
