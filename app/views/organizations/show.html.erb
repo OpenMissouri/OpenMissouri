@@ -109,9 +109,9 @@
 		  <%= @organization.description %>
 		</div>
 		<h3>Data Sets</h3>
-		<% unless @organization.published_data_sets.blank? %>
+		<% unless @data_sets.blank? %>
 			<div id="data_sets">
-			<% @organization.published_data_sets.each do |data_set| %>
+			<% @data_sets.each do |data_set| %>
 				<div class="data_set">
 					<h3><%= link_to data_set.name, data_set %></h3>
 					<p><% unless data_set.description.blank?  %>
@@ -120,7 +120,7 @@
 
 				</div>
 			<% end %>
-		  <%#= will_paginate(@organization.data_sets) %>
+		  <%= will_paginate(@data_sets) %>
 		<% else %>
 		  <p>This organization does not have any data sets</p>
 		<% end %>

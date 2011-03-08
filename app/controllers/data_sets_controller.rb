@@ -6,6 +6,11 @@ class DataSetsController < ApplicationController
   def index
     @data_sets = DataSet.paginate :page => params[:page], :conditions => {:status => "published"}, :order => "created_at desc", :per_page => 20
     @categories = Category.published_categories
+    if params[:query]
+       @search = DataSet.search { keywords 'water' }
+        @data_sets  = @search.results
+    end
+    
     #index!
     respond_to do |format|
       format.html

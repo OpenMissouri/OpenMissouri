@@ -3,5 +3,6 @@
 
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
+require 'sunspot/rails/tasks'
 
 Rails3Base::Application.load_tasks

@@ -18,6 +18,7 @@ gem 'taps'
 gem 'acts_as_commentable'
 gem 'acts-as-taggable-on'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+gem 'sunspot_rails', '~> 1.2.1'
 
 
 group :test, :development do

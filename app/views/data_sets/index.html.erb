@@ -1,6 +1,12 @@
 <p id="notice"><%= notice %></p>
 <div id="sidebar" class="clearfix">
 	<div class="sidebar_section_unbound" class="clearfix">
+		<!--<p>
+			<%= form_tag('/data_sets') do %>
+			<input type="text" id="query"> <input type="submit" value="search" id="search">
+			<% end %>
+			</p>-->
+		
 	  <p class="clearfix">
 		<% if user_signed_in? and current_user.admin? %>
 	  	<%= link_to 'Add a Data Set', new_data_set_path, :class => 'button' %>

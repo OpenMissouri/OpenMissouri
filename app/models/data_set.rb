@@ -13,6 +13,14 @@ class DataSet < ActiveRecord::Base
   acts_as_taggable
   acts_as_taggable_on :tags
   
+  
+  #searchable do
+  #  text    :description
+  #  string  :name
+  #  string  :data_format
+  #  time    :created_at
+  #end
+  
   def to_param
 		"#{id}-#{name.gsub(/[^a-z0-9]+/i, '-').downcase}"
 	end
