@@ -27,6 +27,8 @@ Rails3Base::Application.routes.draw do
   match 'about', :to => 'dashboard#about', :as => "about"
   match 'omteam', :to => 'dashboard#omteam', :as => "omteam"
   match 'opensource', :to => 'dashboard#opensource', :as => "opensource"
+  match 'faq', :to => 'dashboard#faq', :as => "faq"
+  match 'search', :to => 'dashboard#search', :as => "search"
   
   
   devise_for :users,

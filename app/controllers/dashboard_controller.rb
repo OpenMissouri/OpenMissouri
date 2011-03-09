@@ -18,7 +18,13 @@ class DashboardController < ApplicationController
   def opensource
     
   end
-    
-    
+  
+  def search
+    @categories = Category.published_categories
+  end
+  
+  def faq
+
+  end
     
 end
