@@ -29,6 +29,8 @@ Rails3Base::Application.routes.draw do
   match 'opensource', :to => 'dashboard#opensource', :as => "opensource"
   match 'faq', :to => 'dashboard#faq', :as => "faq"
   match 'search', :to => 'dashboard#search', :as => "search"
+  match 'privacy', :to => 'dashboard#privacy', :as => "privacy"
+  match 'terms', :to => 'dashboard#terms', :as => "terms"
   
   
   devise_for :users,

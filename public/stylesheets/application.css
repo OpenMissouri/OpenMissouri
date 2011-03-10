@@ -16,17 +16,37 @@ body { background: #fff url(/images/header_bg.jpg) top left repeat-x;}
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }
+
+
 .content{
 	padding: 20px;
 }
 
 .footer_holder {
-  margin: 0px auto 20px;
-  width: 960px;
+  margin: 0px auto 0px;
+  width: 1000px;
+	background-color: #ccc;
+	padding: 20px 0;
 }
+
 .footer{
-	
+	padding: 0 30px;
+	line-height: 18px;
 }
+.footer h3{ border-bottom: 1px solid #aaa; padding-bottom: 8px; margin-bottom: 5px;}
+.footer ul { list-style-type: none; }
+.footer ul li{ margin-bottom: 5px; padding-bottom: 5px; border-bottom: 1px solid #aaa;}
+.footer ul li a{ color: #111; text-decoration: none; font-weight: bold; }
+.footer ul li a:hover { text-decoration: underline;}
+table.footer_table{ margin: 0;}
+table.footer_table td{ vertical-align: top; }
+table.footer_table td.first{ width: 33%; }
+table.footer_table td.first a{ font-weight: bold; }
+table.footer_table td.second{ padding-left: 25px; width: 33%; }
+table.footer_table td.second ul { list-style-type: disc; }
+table.footer_table td.second ul li{ border: none; }
+table.footer_table td.third{  padding-left: 30px;}
+
 table{ border: 0;}
 table td{ border: 0;}
 
@@ -35,6 +55,9 @@ table td{ border: 0;}
 h1{ font-size: 24px; font-weight: bold; margin: 0 0 15px 0; padding: 0;}
 h3{ margin: 0 0 10px 0; padding: 0 0 0 0 ;}
 #sidebar h3{ margin: 0 0 10px 0; padding: 0 0 0 0 ; font-size: 14px;}
+#sidebar #news_headlines h4{ margin: 0 0 5px 0; padding: 0 0 0 0 ; font-size: 12px;}
+#sidebar #news_headlines p{ margin: 0; padding: 0;}
+#sidebar #news_headlines .story{ margin: 0 0 10px 0;}
 
 #content p{margin: 0 0 10px 0; line-height: 20px;}
 #sidebar p{margin: 0 0 15px 0; line-height: 16px;}

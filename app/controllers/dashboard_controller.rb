@@ -1,10 +1,15 @@
 class DashboardController < ApplicationController
   #before_filter :authenticate_user!
-
+  require 'feed_tools'
+  require 'feed_tools/helpers/feed_tools_helper'
+   
   def index
     #@categories = 
     @data_sets = DataSet.find(:all, :conditions => {:status => "published"}, :order => "created_at desc", :limit => 10)
     @categories = Category.published_categories
+    # reference: http://snippets.aktagon.com/snippets/158-Parsing-feeds-with-Ruby-and-the-FeedTools-gem
+    @feed = FeedTools::Feed.open('http://blog.openmissouri.org/?feed=rss2')
+    
   end
   
   def about
@@ -27,4 +32,12 @@ class DashboardController < ApplicationController
 
   end
     
+    
+  def terms
+
+  end
+  
+  def privacy
+
+  end
 end
