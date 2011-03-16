@@ -25,8 +25,9 @@ body { background: #fff url(/images/header_bg.jpg) top left repeat-x;}
 .footer_holder {
   margin: 0px auto 0px;
   width: 1000px;
-	background-color: #ccc;
+	background-color: #fff;
 	padding: 20px 0;
+	border: 3px solid #999;
 }
 
 .footer{
@@ -43,7 +44,7 @@ table.footer_table td{ vertical-align: top; }
 table.footer_table td.first{ width: 33%; }
 table.footer_table td.first a{ font-weight: bold; }
 table.footer_table td.second{ padding-left: 25px; width: 33%; }
-table.footer_table td.second ul { list-style-type: disc; }
+table.footer_table td.second ul { list-style-type: none; }
 table.footer_table td.second ul li{ border: none; }
 table.footer_table td.third{  padding-left: 30px;}
 
@@ -194,5 +195,6 @@ form abbr { color:red; font-size:1.2em; margin-left:.2em; }
 .pagination span.disabled { color: #888; }
 .pagination em { background: #f0f0f0; padding: 0 5px; -moz-border-radius:6px; -webkit-border-radius:6px; border-radius:6px; margin: 0 2px; border: solid 1px #ddd; }
 #session_new { width: 400px; }
+
 
 /*.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }*/
