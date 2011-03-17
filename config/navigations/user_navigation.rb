@@ -3,7 +3,7 @@ SimpleNavigation::Configuration.run do |navigation|
   
   navigation.items do |user|
     user.dom_class = 'user'
-
+    user.item :search, "#{image_tag('/images/icons/search.png', :style => "float: left; margin-right: 3px; padding-top: 1px")} Search Open Missouri", search_path
     if user_signed_in?
       if current_user.admin? 
         user.item :admin, 'Admin', '/admin'

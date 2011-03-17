@@ -10,12 +10,12 @@
 		<%= auto_discovery_link_tag(:rss) %>
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
-		<meta name="google-site-verification" content="WIkbcVjr1dIqP1GVQivqR4wx7UY7GiosOElos-2O8O8" />
-
+		<link href='http://fonts.googleapis.com/css?family=Cabin:regular,500,600,bold' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
   </head>
   <body>
 		
-	
+	<div id="wrapper">
 		<div class="header_holder clearfix">
 			<div class="header clearfix">
 				<div class="logo clearfix"><%= link_to image_tag("logo.png", :border => 0), root_path %></div>
@@ -34,6 +34,7 @@
 	      <%= yield %>
 				</div>
     </div>
+	</div><!-- end wrapper -->
 		<div class="footer_holder clearfix">
 			<div class="footer">
 				<table cellspacing="0" cellpadding="0" border="0" class="footer_table">
@@ -61,8 +62,8 @@
 							<li><%= link_to "About", about_path %></li>
 							<li><%= link_to "Open Missouri Team", omteam_path %></li>
 							<li><%= link_to "Frequently Asked Questions", faq_path %></li>
-							<!--<li><%= link_to "Terms of Use", terms_path %></li>
-							<li><%= link_to "Privacy Policy", privacy_path %></li>-->
+							<li><%= link_to "Terms of Use", terms_path %></li>
+							<li><%= link_to "Privacy Policy", privacy_path %></li>
 							</ul>
 						</td>
 					</tr>

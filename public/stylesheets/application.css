@@ -1,8 +1,13 @@
-body { background: #fff url(/images/header_bg.jpg) top left repeat-x;}
+/*body { background: #fff url(/images/header_bg.jpg) top left repeat-x;}*/
+body { background: transparent url(/images/main_bg.jpg) top left repeat; }
 .header_holder {
-  margin: 22px auto 10px auto;
+  margin: 0px auto 0px auto;
   width: 960px;
+	padding: 22px;
 }
+
+#wrapper { background: transparent url(/images/header_bg.jpg) top left repeat-x;}
+
 .header{
 	
 }
@@ -23,16 +28,17 @@ body { background: #fff url(/images/header_bg.jpg) top left repeat-x;}
 }
 
 .footer_holder {
-  margin: 0px auto 0px;
-  width: 1000px;
-	background-color: #fff;
-	padding: 20px 0;
-	border: 3px solid #999;
+  
+  width: 100%;	
+	padding: 20px 0 0 0;
+
 }
 
 .footer{
 	padding: 0 30px;
 	line-height: 18px;
+	width: 960px;
+	margin: 0px auto 0px auto;
 }
 .footer h3{ border-bottom: 1px solid #aaa; padding-bottom: 8px; margin-bottom: 5px;}
 .footer ul { list-style-type: none; }
@@ -60,10 +66,13 @@ h3{ margin: 0 0 10px 0; padding: 0 0 0 0 ;}
 #sidebar #news_headlines p{ margin: 0; padding: 0;}
 #sidebar #news_headlines .story{ margin: 0 0 10px 0;}
 
+.twitter_link{ font-weight: bold;}
+.twitter_link img{ float: left; margin: 0 5px 0 0; padding: 0;}
+
 #content p{margin: 0 0 10px 0; line-height: 20px;}
 #sidebar p{margin: 0 0 15px 0; line-height: 16px;}
 
-#content .tagline{ margin: 0 0 15px 0; padding: 15px; font-family: georgia; font-size: 20px; color: #593d28; background-color: #fff5a5;  border: 2px solid #ffec56;}
+#content .tagline{ margin: 0 0 15px 0; padding: 15px; font-family: 'Arvo', arial, serif; font-size: 18px; color: #593d28; background-color: #fff5a5;  border: 2px solid #ffec56;}
 
 a.rss{ display: block; padding: 1px 0 0 22px; background: transparent url(/images/icons/social/rss_16.png) left top no-repeat; height: 16px;}
 
@@ -83,13 +92,13 @@ a.rss{ display: block; padding: 1px 0 0 22px; background: transparent url(/image
 
 #navigation ul.user{ margin: 0; padding: 0; float: right;}
 #navigation ul.user li{ display: inline; }
-#navigation ul.user li a{ float: left; text-decoration: none; padding: 0px 0 5px 5px; color: #333;}
-#navigation ul.user li a:hover, #navigation ul li .selected { color: #222 }
+#navigation ul.user li a{ float: left; text-decoration: none; padding: 0px 0 5px 15px; color: #333; }
+#navigation ul.user li a:hover, #navigation ul li .selected { color: #222; border: none;}
 
-#navigation ul.main{ margin: 0; padding: 20px 0 0 0;  float: right; }
+#navigation ul.main{ margin: 0; padding: 0px 0 0 0;  float: right; }
 #navigation ul.main li{ display: inline;  }
-#navigation ul.main li a{ float: left; text-decoration: none; padding: 2px 0 0 0; color: #333; font-size: 22px; font-weight: bold; margin-left: 20px;}
-#navigation ul.main li a:hover, #navigation ul li .selected { color: #222; border-bottom: 3px solid #222;}
+#navigation ul.main li a{ float: left; text-decoration: none; padding: 2px 0 0 0; color: #333; font-size: 22px; font-weight: bold; margin-left: 20px; }
+#navigation ul.main li a:hover, #navigation ul.main li .selected { color: #222; border-bottom: 3px solid #222;}
 #navigation ul li a.selected { color: #222;}
 
 
