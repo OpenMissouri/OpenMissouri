@@ -50,14 +50,14 @@ RailsAdmin.config do |config|
   end
   
   config.model Page do
-    edit do
-      field :name
-      field :section
-      field :sort
-      field :body do
-        ckeditor true
-      end
-    end
+    #edit do
+    #  field :name
+    #  field :section
+    #  field :sort
+    #  field :body do
+    #    ckeditor true
+    #  end
+    #end
   end
   
 end
