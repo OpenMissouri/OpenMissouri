@@ -1,10 +1,12 @@
 Rails3Base::Application.routes.draw do
   
   
+  resources :pages
+
   match 'data_sets/feed', :to => 'data_sets#feed', :action => 'feed'
   
   match 'suggest_a_data_set', :to => 'data_sets#suggest', :as => "suggest"
-  match 'suggest_thanks', :to => 'data_sets#thanks', :as => "suggest_thanks"
+  match 'suggest_thanks/:id', :to => 'data_sets#thanks', :as => "suggest_thanks"
   resources :data_sets do
     collection do
       get :category

@@ -42,11 +42,12 @@ class DataSetsController < ApplicationController
   
   def create
     @data_set = DataSet.new(params[:data_set])
-    redirect_url = @data_set.suggester ? suggest_thanks_path : nil
-    create!{redirect_url}
+    UserMailer.dataset_thanks_email(@data_set.suggester, @data_set).deliver if @data_set.suggester
+    create!{suggest_thanks_path(@data_set) if @data_set.suggester}
   end
   
   def thanks
+    @data_set = DataSet.find(params[:id])
     @categories = Category.find(:all, :order => "name")
     #we should send an email out the suggester and the admin 
   end

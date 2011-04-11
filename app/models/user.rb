@@ -7,9 +7,6 @@ class User < ActiveRecord::Base
   attr_accessible :full_name, :email, :password, :password_confirmation, :first_name, :last_name, :position, :affiliation, :website, :twitter, :street1, :street2, :city, :state, :postal_code, :agency_id
   validates :first_name, :presence => true
 
-
-
-
   has_many :organizations
   has_many :data_sets
   has_many :suggested_data_sets, :class_name => "DataSet"

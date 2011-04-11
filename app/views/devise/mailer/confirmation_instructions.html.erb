@@ -1,5 +1,8 @@
 <p>Welcome <%= @resource.full_name %>!</p>
 
-<p>You can confirm your account through the link below:</p>
+<p>Thanks for joining the Open Missouri community! You'll need to confirm your account through the link below before signing in for the first time.</p>
 
 <p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+
+Thanks,
+The Open Missouri Team
