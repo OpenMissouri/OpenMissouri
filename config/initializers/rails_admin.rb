@@ -50,6 +50,8 @@ RailsAdmin.config do |config|
   end
   
   config.model Page do
+    #this is arbitrary
+    
     #edit do
     #  field :name
     #  field :section
