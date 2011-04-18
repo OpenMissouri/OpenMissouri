@@ -1,5 +1,53 @@
 <p id="notice"><%= notice %></p>
 <div id="sidebar">
+	<p style="margin-bottom: 15px; display: block;"><a href="#sunshinebox" rel="facebox" class="button">Sunshine This</a></p>
+	<div id="sunshinebox" style="display:none; width: 500px">
+  	<%= current_user.full_name %>
+		<br /><%= address_block(current_user.street1, current_user.street2, current_user.city, current_user.state, current_user.postal_code)%>
+
+		<br /><br /><%= Time.now.to_date %>
+
+		<br /><br /><%= @data_set.organization.sunshine_contact %>
+		<% unless @data_set.organization.sunshine_title.blank? %>
+			<br /><%= @data_set.organization.sunshine_title %>
+		<% end %>
+		<% unless @data_set.organization.governement_entity_name.blank? %>
+			<br /><%= @data_set.organization.governement_entity_name %>
+		<% end %>
+		<% unless @data_set.organization.name.blank? %>
+			<br /><%= @data_set.organization.name %>
+		<% end %>
+		<br /><%= address_block(@data_set.organization.address1, @data_set.organization.address2, @data_set.organization.city, @data_set.organization.state, @data_set.organization.postal_code)%>
+		
+	
+
+		<br /><p>Dear <%= @data_set.organization.sunshine_contact ? @data_set.organization.sunshine_contact : "[contact name]" %>:</p>
+
+		<p>Under the Missouri Sunshine Law (RsMO Chapter 610), I request in electronic form a copy of your agency's <%= @data_set.name%> database. {SPECIFY THE TIME PERIOD THAT YOUR DATA COVERS}</p>
+		
+		<p>I understand that the data is stored in <%= @data_set.data_format %> format. Please provide the data to me in that format {OR IN ANOTHER FORMAT SPECIFICED BY YOU, SUCH AS DELIMITED TEXT, OR MICROSOFT EXCEL}. In addition, I request copies of any documentation that I'll need to understand the data.</p>
+
+		<p>Please contact me if you have any questions about my request. I will be happy to work with you to fill this request quickly. Feel free to contact me at my phone number, which is listed at the head of this letter.</p>
+
+		<p>You can email the files to me at [user email address] or mail them to my address above.</p>
+
+		<p>If you deny any or all of this request, you are required to do so in writing and cite your specific legal authority.</p>
+
+		<p>OPTIONAL FEE LIMIT/WAIVER LANGUAGE:
+		<br />>I am willing to pay fees up to (insert amount here) to fill this request. Please contact me if the fees will exceed this amount.</p>
+
+		<p>I request a fee waiver. The release of this data is in the public interest because it is likely to contribute significantly to public understanding of the operations or activities of the public governmental body and is not primarily for my own commercial interest.</p>
+
+		<p>I look forward to your response within three working days, as required by the Sunshine Law.</p>
+
+		<p>Sincerely,</p>
+
+
+		<p><%= current_user.full_name %></p>
+
+
+
+	</div>
 	<% if user_signed_in? and current_user.admin? %>
 	<p class="clearfix"><%= link_to 'Edit this data set', edit_data_set_path(@data_set), :class => 'button' %></p>
 	<% end %>
@@ -125,4 +173,8 @@
 	</div>
 
 <div>
-
+<script>
+	jQuery(document).ready(function($) {
+	  $('a[rel*=facebox]').facebox()
+	})
+</script>
