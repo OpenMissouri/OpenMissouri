@@ -7,7 +7,7 @@ SimpleNavigation::Configuration.run do |navigation|
       primary.item :data_sets, 'Data Sets', data_sets_path
       primary.item :organizations, 'Agencies', organizations_path
       primary.item :blog, 'Blog', "http://blog.openmissouri.org"
-      primary.item :about, 'About', about_path
+      primary.item :about, 'About', '/pages/about'
       
   end
 end
