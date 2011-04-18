@@ -7,6 +7,7 @@ class PagesController < ApplicationController
   end
   
   def index
+    #this is
     @section = params[:section]
     @page = Page.find(:first, :conditions => "section = '#{params[:section]}'", :order => "sort")
   end
