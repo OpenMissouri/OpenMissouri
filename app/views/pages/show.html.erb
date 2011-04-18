@@ -1,5 +1,15 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @page.title %></h1>
+
+<div id="sidebar">	
+		<%= render :partial => "sidebar"%>
+</div>
+
+<div id="content" class="clearfix">
+<%= raw @page.body %>
+</div>
 
 
-<%= link_to 'Edit', edit_page_path(@page) %> |
-<%= link_to 'Back', pages_path %>
+
+	
+
+

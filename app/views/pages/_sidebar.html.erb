@@ -1,0 +1,11 @@
+<div id="sidebar_content">
+	<ul>
+			
+			<% unless @page_links.blank? %>
+				<% @page_links.each do |page| %>
+					<li><%= link_to page.title, page_path(page.section, page) %></li>
+					
+				<% end %>
+			<% end %>
+	</ul>
+</div>

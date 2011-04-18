@@ -4,5 +4,12 @@
 			<li><%= link_to "The Open Missouri Team", omteam_path %></li>
 			<li><%= link_to "Open Source Missouri", opensource_path %></li>
 			<li><%= link_to "Open Missouri FAQ", faq_path %></li>
+			
+			<% unless @page_links.blank? %>
+				<% @page_links.each do |page| %>
+					<li><%= link_to page.title, page %></li>
+					
+				<% end %>
+			<% end %>
 	</ul>
 </div>

@@ -50,16 +50,23 @@ RailsAdmin.config do |config|
   end
   
   config.model Page do
+    
+    list do
+      sort_by :sort
+      sort_reverse { false }
+      
+      field :title
+      field :section
+      field :sort
+      field :published
+    end
+    
     #this is arbitrary
     
-    #edit do
-    #  field :name
-    #  field :section
-    #  field :sort
-    #  field :body do
-    #    ckeditor true
-    #  end
-    #end
+    edit do
+      
+       
+    end
   end
   
 end
