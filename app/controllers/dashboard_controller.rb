@@ -1,7 +1,7 @@
 class DashboardController < ApplicationController
   #before_filter :authenticate_user!
-  #require 'feed_tools'
-  #require 'feed_tools/helpers/feed_tools_helper'
+  require 'feed_tools'
+  require 'feed_tools/helpers/feed_tools_helper'
    
   def index
     #@categories = 
@@ -12,7 +12,7 @@ class DashboardController < ApplicationController
     #@ic = Iconv.new('ISO-8859-1', 'UTF-8')
     #feed.description = @ic.iconv(feed.description)
     
-    #@feed = FeedTools::Feed.open('http://blog.openmissouri.org/?feed=rss2')
+    @feed = FeedTools::Feed.open('http://blog.openmissouri.org/?feed=rss2')
     
   end
   
