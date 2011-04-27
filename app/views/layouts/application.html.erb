@@ -64,8 +64,17 @@
 							<li><%= link_to "About", about_path %></li>
 							<li><%= link_to "Open Missouri Team", omteam_path %></li>
 							<li><%= link_to "Frequently Asked Questions", faq_path %></li>
-							<li><%= link_to "Terms of Use", terms_path %></li>
-							<li><%= link_to "Privacy Policy", privacy_path %></li>
+							<% unless @terms_links.blank? %>
+								<% @terms_links.each do |page| %>
+									<li><%= link_to page.title, page_path(page.section, page) %></li>
+								<% end %>
+							<% end %>
+							<% unless @privacy_links.blank? %>
+								<% @privacy_links.each do |page| %>
+									<li><%= link_to page.title, page_path(page.section, page) %></li>
+								<% end %>
+							<% end %>
+							
 							</ul>
 						</td>
 					</tr>

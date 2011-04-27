@@ -12,17 +12,17 @@
 				<p class="twitter_link"><%= link_to image_tag('/images/icons/social/twitter_16.png') + "Follow us on Twitter", "http://twitter.com/openmissouri"%></p>
 			</div>
 			
-			<div class="sidebar_section" class="clearfix">
+			<!--<div class="sidebar_section" class="clearfix">
 				<h3>OpenMissouri News</h3>
 				<div id="news_headlines">
-					<% for item in @feed.items %>
+					<%# for item in @feed.items %>
 						<div class="story">
-							<h4><%= link_to item.title, item.link %></h4>
-							<%= sanitize first_x_words(item.content,20,nil) %>
+							<h4><%#= link_to item.title, item.link %></h4>
+							<%#= sanitize first_x_words(item.content,20,nil) %>
 						</div>
-					<% end %>
+					<%# end %>
 				</div>
-			</div>
+			</div>-->
 			
 			<div class="sidebar_section" class="clearfix">
 				<h3>Browse Categories</h3>

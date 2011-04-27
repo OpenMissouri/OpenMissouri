@@ -1,6 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
+  before_filter :build_footer_links
+  
+  
+  def build_footer_links
+     @terms_links = Page.find(:all, :conditions => "section = 'terms'", :order => "sort")
+     @privacy_links = Page.find(:all, :conditions => "section = 'privacy'", :order => "sort")
+  end
   
   def authenticate_admin
     unless user_signed_in? and current_user.admin?
