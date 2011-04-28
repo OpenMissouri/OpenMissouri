@@ -66,7 +66,7 @@ module ApplicationHelper
       loc << "#{city_state}<br />"
     end
     
-    loc ? loc : "No address information is available."
+    loc ? raw(loc) : "No address information is available."
   end
   
 end

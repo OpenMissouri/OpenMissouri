@@ -58,8 +58,8 @@ table{ border: 0;}
 table td{ border: 0;}
 
 
-#sunshine_header{ background-color: #333; padding: 15px; color: #fff; font-size: 12px; font-weight: bold; }
-#sunshine_header h2{ color: #fff;}
+#sunshine_header{ background-color: #ddd; padding: 15px; color: #222; font-size: 14px; font-weight: normal; line-height: 20px; }
+#sunshine_header h2{ color: #404040;}
 #sunshine_content{ padding: 15px; line-height: 18px;}
 
 h1{ font-size: 24px; font-weight: bold; margin: 0 0 15px 0; padding: 0;}
