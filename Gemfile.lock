@@ -215,6 +215,7 @@ DEPENDENCIES
   omniauth (= 0.1.6)
   rails (= 3.0.3)
   rails_admin!
+  rake
   simple-navigation (= 3.0.2)
   sunspot_rails (= 1.2.1)
   tabletastic (= 0.2.1)
