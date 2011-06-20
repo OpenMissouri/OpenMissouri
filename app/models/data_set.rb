@@ -23,7 +23,7 @@ class DataSet < ActiveRecord::Base
   
   def to_param
     # parameterize prettifies the url and downcases
-    "#{id}-#{name.paramaterize}"
+    "#{id}-#{name.parameterize}"
   end
 
 end
