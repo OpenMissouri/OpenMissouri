@@ -18,7 +18,7 @@
 					<% for item in @feed.items %>
 						<div class="story">
 							<h4><%= link_to item.title, item.link %></h4>
-							<%= sanitize first_x_words(item.content,20,nil) %>
+							<%= sanitize first_x_words(item.description,20,nil) %>
 						</div>
 					<% end %>
 				</div>

@@ -1,4 +1,5 @@
 source :rubygems
+source "http://gems.github.com"
 
 gem 'rake'
 gem 'mysql', '2.8.1'
@@ -20,7 +21,8 @@ gem 'acts_as_commentable'
 gem 'acts-as-taggable-on'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'sunspot_rails', '1.2.1'
-gem 'feedtools'
+#gem 'feedtools', :path => 'vendor/gems/feedtools'
+gem 'simple-rss'
 
 group :test, :development do
 	gem 'railsmachine'
