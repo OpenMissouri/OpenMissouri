@@ -1,9 +1,24 @@
+<% content_for :sidebar do %>
 
+	<div id="sidebar">
+		<div id="sidebar_content">
+		
+		
+			<div class="sidebar_section" class="clearfix">
+				<ul>
+					<li>
+						<h4>What happens when I suggest a data set to <%= configatron.app_name %>?</h4>
+						<p>Once you have submitted information about a data set, <%= configatron.app_name %> moderators will review the submission before posting it to the site. One of our moderators may choose to contact you or the agency who maintains the data for additional information.</p>
+					</li>
+				</ul>
+			</div>
+			
+		</div>
+	</div>
+<% end %>
 
 
 <% title 'Suggest a Data Set' %>
-
-
 
 <%= render 'suggest_form', :locals => {:form => form} %>
 

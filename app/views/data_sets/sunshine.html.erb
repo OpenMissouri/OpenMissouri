@@ -1,0 +1,31 @@
+<% content_for :sidebar do %>
+
+	<div id="sidebar">
+		<div id="sidebar_content">
+
+			<div class="sidebar_section" class="clearfix">
+				<p style="padding:20px;margin: 0">Return to <%= link_to @data_set.name, @data_set%></p>
+			</div>
+			
+		</div>
+	</div>
+
+<% end %>
+	
+	<% title @data_set.name %>
+	
+	<div id="sunshine_header">
+		<h2>Sunshine This</h2>
+		<p>Open Missouri has started a letter that you can use to request data from government agencies. Just copy this text and paste it into your email program or word processor. Please note the instructions in caps and edit your letter as appropriate.</p>
+		
+	</div>
+	<p><a id="d_clip_button" href="#">Copy To Clipboard</a></p>
+	<script language="JavaScript">
+		var clip = new ZeroClipboard.Client();
+		clip.setText( '<%= sunshine_letter_text(@data_set, current_user)%>' );
+		clip.glue( 'd_clip_button' );
+	</script>
+	
+	<div id="sunshine_content">
+		<%=render :partial => "sunshine_text"%>
+	</div>

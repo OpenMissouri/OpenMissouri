@@ -10,12 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110414163646) do
-
-  create_table "admins", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20110712162448) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -63,7 +58,11 @@ ActiveRecord::Schema.define(:version => 20110414163646) do
     t.text     "interest"
     t.integer  "suggester_id"
     t.text     "agency_other"
-    t.string   "status",            :default => "unpublished"
+    t.string   "status",                  :default => "unpublished"
+    t.string   "samplefile_file_name"
+    t.string   "samplefile_content_type"
+    t.integer  "samplefile_file_size"
+    t.datetime "samplefile_updated_at"
   end
 
   create_table "government_levels", :force => true do |t|
@@ -114,7 +113,7 @@ ActiveRecord::Schema.define(:version => 20110414163646) do
     t.string   "username"
     t.integer  "item"
     t.string   "table"
-    t.integer  "month",      :limit => 2
+    t.integer  "month"
     t.integer  "year",       :limit => 8
     t.datetime "created_at"
     t.datetime "updated_at"

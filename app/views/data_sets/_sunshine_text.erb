@@ -1,4 +1,4 @@
-<%= current_user.full_name %>
+<%= "#{current_user.first_name} #{current_user.first_name}" %>
 <br /><%= address_block(current_user.street1, current_user.street2, current_user.city, current_user.state, current_user.postal_code)%>
 <br /><%= Time.now.strftime("%B %d, %Y") %>
 <br /><%= @data_set.organization.sunshine_contact %>

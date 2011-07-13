@@ -1,37 +1,21 @@
-<div id="sidebar" class="clearfix">
-	<div class="sidebar_section_unbound" class="clearfix">
-	  <p class="clearfix">
-		<% if user_signed_in? and current_user.admin? %>
-	  	<%= link_to 'Add a Data Set', new_data_set_path, :class => 'button' %>
+
+<% content_for :sidebar do %>
+
+	<div id="sidebar">
+		<div id="sidebar_content">
 		
-		<% else %>
-			<%= link_to 'Suggest a Data Set', suggest_path, :class => 'button' %>
+			<div class="sidebar_section_unbound" class="clearfix">
+			  <%= render :partial => "/shared/add_data_set_actions" %>
+			</div>
+		
+			<div class="sidebar_section" class="clearfix">
+				<%= render :partial => "/shared/categories_list" %>
+			</div>
 			
-		<% end %>
-		</p>
+		</div>
 	</div>
-	
-	<div class="sidebar_section" class="clearfix">
-		<h3>Browse Categories</h3>
-		<ul>
-			<% @categories.each do |category|%>
-				<li><%= link_to category.name, category %></li>
-			<% end %>
-		</ul>		
-	</div>
-
-</div>
-
-<div id="content" class="clearfix">
-	
+<% end %>	
 
 <% title "Thanks for letting us know about #{@data_set.name}" %>
 
 <p>It will appear on Open Missouri within the next few days, after a site moderator posts it.</p>
-
-
-<br />
-
-
-
-</div>

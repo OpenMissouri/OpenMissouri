@@ -1,71 +1,46 @@
+<% content_for :sidebar do %>
+
 <div id="sidebar">
-		<div id="sidebar_content">
-			
-			<div class="sidebar_section_unbound" class="clearfix">
-			  <p class="clearfix">
-				<% if user_signed_in? and current_user.admin? %>
-			  	<%= link_to 'Add a Data Set', new_data_set_path, :class => 'button' %>
-				<% else %>
-					<%= link_to 'Suggest a Data Set', suggest_path, :class => 'button' %>
-				<% end %>
-				</p>
-				<p class="twitter_link"><%= link_to image_tag('/images/icons/social/twitter_16.png') + "Follow us on Twitter", "http://twitter.com/openmissouri"%></p>
-			</div>
-			
-			<div class="sidebar_section" class="clearfix">
-				<h3>OpenMissouri News</h3>
-				<div id="news_headlines">
-					<% for item in @feed.items %>
-						<div class="story">
-							<h4><%= link_to item.title, item.link %></h4>
-							<%= sanitize first_x_words(item.description,20,nil) %>
-						</div>
-					<% end %>
-				</div>
-			</div>
-			
-			<div class="sidebar_section" class="clearfix">
-				<h3>Browse Categories</h3>
-				<ul>
-					<% @categories.each do |category|%>
-						<li><%= link_to category.name, category %></li>
-					<% end %>
-				</ul>
-			</div>
-
-			<%= render :partial => "dashboard/email_subscription_form"%>
+	<div id="sidebar_content">
+		
+		<div class="sidebar_section_unbound" class="clearfix">
+		  <%= render :partial => "/shared/add_data_set_actions" %>
+			<%= render :partial => "/shared/social_follow_links" %>
 		</div>
-	</div>
-
-	<div id="content" class="clearfix">
-		<div class="tagline">Connecting you to Missouri's state and local government data.</div>
 		
-		<script src="/javascripts/swfobject.js" type="text/javascript"></script>
-		<div id="flashcontent"></div>
-		&#160;
-		<script type="text/javascript">var so = new SWFObject("/soundslider.swf", "Open Missouri", "620", "373", "8", "#000000");
-		   so.write("flashcontent");</script>
+		<div class="sidebar_section" class="clearfix">
+			<%= render :partial => "/shared/news_headlines" %>
+		</div>
+		
+		<div class="sidebar_section" class="clearfix">
+			<%= render :partial => "/shared/categories_list" %>
+		</div>
+		<%= render :partial => "/shared/email_subscription_form"%>
+	</div>
+</div>
+<% end %>
 
 
-		<h3>Recent Data Sets</h3>
-		<% unless @data_sets.blank? %>
-			<div id="data_sets" class="data_list">
-				<% @data_sets.each do |data_set| %>
-					<div class="data_item">
-						<h3><%= link_to data_set.name, data_set_path(data_set) %></h3>
-						<div class="organization"><% unless data_set.organization.blank? %><%= link_to data_set.organization.name, organization_path(data_set.organization) %><% end %></div>
-						<div class="categories"><%= data_set.categories.collect{|category| category.name}.join(", ") %></div>
-					</div>
-				<% end %>
+<div class="tagline">Connecting you to Missouri's state and local government data.</div>
+
+<script src="/javascripts/swfobject.js" type="text/javascript"></script>
+<div id="flashcontent"></div>
+&#160;
+<script type="text/javascript">var so = new SWFObject("/soundslider.swf", "Open Missouri", "620", "373", "8", "#000000");
+   so.write("flashcontent");</script>
+
+
+<h3>Recent Data Sets</h3>
+<% unless @data_sets.blank? %>
+	<div id="data_sets" class="data_list">
+		<% @data_sets.each do |data_set| %>
+			<div class="data_item">
+				<h3><%= link_to data_set.name, data_set_path(data_set) %></h3>
+				<div class="organization"><% unless data_set.organization.blank? %><%= link_to data_set.organization.name, organization_path(data_set.organization) %><% end %></div>
+				<div class="categories"><%= data_set.categories.collect{|category| category.name}.join(", ") %></div>
 			</div>
-		<% else %>
-			<p>We were not able to find any data sets for you.</p>
 		<% end %>
-	
 	</div>
-
-
-
-		
-
-
+<% else %>
+	<p>We were not able to find any data sets for you.</p>
+<% end %>

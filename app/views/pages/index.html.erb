@@ -1,9 +1,11 @@
-<h1><%= @page.title %></h1>
+<% content_for :sidebar do %>
+	<div id="sidebar">
+		<div id="sidebar_content">
+			<%= render :partial => "sidebar"%>
+		</div>
+	</div>
+<% end %>	
 
-<div id="sidebar">	
-		<%= render :partial => "sidebar"%>
-</div>
+<% title @page.title %>
 
-<div id="content" class="clearfix">
 <%= raw @page.body %>
-</div>

@@ -7,6 +7,7 @@ Rails3Base::Application.routes.draw do
   
   match 'suggest_a_data_set', :to => 'data_sets#suggest', :as => "suggest"
   match 'suggest_thanks/:id', :to => 'data_sets#thanks', :as => "suggest_thanks"
+  match 'sunshine/:id', :to => 'data_sets#sunshine', :as => "sunshine"
 
   match 'pages/:section/', :to => 'pages#index', :as => "section"  
   match 'pages/:section/:id', :to => 'pages#show', :as => "page"

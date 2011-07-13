@@ -9,6 +9,7 @@ class DataSet < ActiveRecord::Base
   cattr_reader :per_page
   @@per_page = 20
   
+  has_attached_file :samplefile
   
   acts_as_taggable
   acts_as_taggable_on :tags

@@ -3,7 +3,7 @@ source "http://gems.github.com"
 
 gem 'rake'
 gem 'mysql', '2.8.1'
-gem 'rails', '3.0.3'
+gem 'rails', '3.0.7'
 gem 'jquery-rails', '0.2.5'
 gem 'configatron', '2.6.4'
 gem 'devise', '1.2.rc'
@@ -23,6 +23,7 @@ gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'sunspot_rails', '1.2.1'
 #gem 'feedtools', :path => 'vendor/gems/feedtools'
 gem 'simple-rss'
+gem 'paperclip', '2.3.5'
 
 group :test, :development do
 	gem 'railsmachine'

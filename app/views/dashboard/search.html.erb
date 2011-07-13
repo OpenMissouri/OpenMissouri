@@ -1,40 +1,25 @@
-<h1>Search OpenMissouri</h1>
-
-<div id="sidebar">	
-	<div class="sidebar_section" class="clearfix">
-		<h3>Browse Categories</h3>
-		<ul>
-			<% @categories.each do |category|%>
-				<li><%= link_to category.name, category %></li>
-			<% end %>
-		</ul>		
+<% content_for :sidebar do %>
+	<div id="sidebar">
+		<div id="sidebar_content">
+			<div class="sidebar_section" class="clearfix">
+				<%= render :partial => "/shared/categories_list" %>
+			</div>
+		</div>
 	</div>
+<% end %>
 
-</div>
-
-<div id="content" class="clearfix">
-
-	<div class="description">
-
-		<div id="cse" style="width: 100%;">Loading</div>
-		<script src="http://www.google.com/jsapi" type="text/javascript"></script>
-		<script type="text/javascript">
-		  google.load('search', '1', {language : 'en', style : google.loader.themes.MINIMALIST});
-		  google.setOnLoadCallback(function() {
-		    var customSearchControl = new google.search.CustomSearchControl('012501353196303422514:kr-2aoxhxdi');
-		    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
-		    var options = new google.search.DrawOptions();
-		    options.setAutoComplete(true);
-		    customSearchControl.draw('cse', options);
-		  }, true);
-		</script>
-
-
-
-
-
-
-
-
-</div>
+<% title 'Search OpenMissouri' %>
+<div class="description">
+	<div id="cse" style="width: 100%;">Loading</div>
+	<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+	<script type="text/javascript">
+	  google.load('search', '1', {language : 'en', style : google.loader.themes.MINIMALIST});
+	  google.setOnLoadCallback(function() {
+	    var customSearchControl = new google.search.CustomSearchControl('012501353196303422514:kr-2aoxhxdi');
+	    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+	    var options = new google.search.DrawOptions();
+	    options.setAutoComplete(true);
+	    customSearchControl.draw('cse', options);
+	  }, true);
+	</script>
 </div>

@@ -16,6 +16,50 @@ module ApplicationHelper
     url.include?( "http://" )? url : "http://#{url}"
   end
   
+  def sunshine_letter_text(data_set, user=nil, escaped=true)
+    txt = ""
+    
+    if user
+      txt << "#{user.full_name}\n"
+      txt << "#{address_block(user.street1, user.street2, user.city, user.state, user.postal_code)}\n"
+      txt << "#{Time.now.strftime("%B %d, %Y")}\n"
+      txt << "#{user.full_name}\n"
+    end  
+    
+    txt << "#{data_set.organization.sunshine_contact}\n"
+    
+    unless data_set.organization.sunshine_title.blank?
+      txt << "\n#{data_set.organization.sunshine_title}"
+    end
+    
+    unless data_set.organization.governement_entity_name.blank?
+      txt << "\n#{data_set.organization.governement_entity_name}"
+    end
+    
+    unless data_set.organization.name.blank?
+      txt << "\n#{data_set.organization.name}"
+    end
+    
+    txt << "\n#{address_block(data_set.organization.address1, data_set.organization.address2, data_set.organization.city, data_set.organization.state, data_set.organization.postal_code)}" 
+    txt << "\n\nDear #{data_set.organization.sunshine_contact ? data_set.organization.sunshine_contact : "[contact name]" }:"
+    txt << "\n\nUnder the Missouri Sunshine Law (RsMO Chapter 610), I request in electronic form a copy of your agency's #{data_set.name} database. {SPECIFY THE TIME PERIOD THAT YOUR DATA COVERS}"
+    txt << "\n\nI understand that the data is stored in #{data_set.data_format} format. Please provide the data to me in that format {OR IN ANOTHER FORMAT SPECIFICED BY YOU, SUCH AS DELIMITED TEXT, OR MICROSOFT EXCEL}. In addition, I request copies of any documentation that I'll need to understand the data."
+    txt << "\n\nPlease contact me if you have any questions about my request. I will be happy to work with you to fill this request quickly. Feel free to contact me at my phone number, which is listed at the head of this letter."
+    txt << "\n\nYou can email the files to me at #{user ? user.email : "[your email address]"} or mail them to my address above."
+    txt << "\n\nIf you deny any or all of this request, you are required to do so in writing and cite your specific legal authority."
+    txt << "\n\nOPTIONAL FEE LIMIT/WAIVER LANGUAGE:"
+    txt << "\nI am willing to pay fees up to [insert amount here] to fill this request. Please contact me if the fees will exceed this amount."
+    txt << "\n\nI request a fee waiver. The release of this data is in the public interest because it is likely to contribute significantly to public understanding of the operations or activities of the public governmental body and is not primarily for my own commercial interest."
+    txt << "\n\nI look forward to your response within three working days, as required by the Sunshine Law."
+    txt << "\n\nSincerely,"
+    txt << "\n#{user ? user.full_name : "[Your Name]" }"
+    
+    if escaped
+      escape_javascript(txt)
+    else
+      txt
+    end
+  end
   
   def format_date(date,format=:short)
     case format

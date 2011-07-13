@@ -1,54 +1,44 @@
-<p id="notice"><%= notice %></p>
-<div id="sidebar">
-	
-	<% if user_signed_in? and current_user.admin? %>
-	<p style="margin-bottom: 15px; display: block;" class="clearfix"><a href="#sunshinebox" rel="facebox" class="button">Sunshine This</a></p>
-	<div id="sunshinebox" style="display:none; width: 500px">
-		
-		<div id="sunshine_header">
-			<h2>Sunshine This</h2>
-			<p>Open Missouri has started a letter that you can use to request data from government agencies. Just copy this text and paste it into your email program or word processor. Please note the instructions in caps and edit your letter as appropriate.</p>
-		</div>
-		<div id="sunshine_content">
-			<%=render :partial => "sunshine_text"%>
+<% content_for :sidebar do %>
 
-		</div>
-	</div>
-	<p class="clearfix"><%= link_to 'Edit this data set', edit_data_set_path(@data_set), :class => 'button' %></p>
-	<% else %>
-	<div id="loginbox" style="display:none; width: 500px;height: 300px;">
-		<h2>Please login first</h2>
-		<p>In order to customize the Sunshine This letter, we need to you to <%= link_to "sign up", new_user_registration_path %> or <%= link_to "login", new_user_session_path %> to OpenMissouri.</p>
-		
-	</div>
-	<p style="margin-bottom: 15px; display: block;" class="clearfix"><a href="#loginbox" rel="facebox" class="button">Sunshine This</a></p>
-	<% end %>
-	
-	
-	
-	<div class="sidebar_section_unbound" class="clearfix">
-	
-		<h3>Share this Data Set</h3>
-		
+	<div id="sidebar">
+		<div id="sidebar_content">
+			<% if user_signed_in? %>
+			
+				<p class="clearfix"><%= link_to image_tag("/images/buttons/sunshine_this.png"), sunshine_path(@data_set)%></p>
+			
+				<% if  current_user.admin? %>
+					<p class="clearfix"><%= link_to 'Edit this data set', edit_data_set_path(@data_set), :class => 'button' %></p>
+				<% end %>
 
-		
-		<div class="social_menu">
-			<!-- AddThis Button BEGIN -->
-			<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-			<a class="addthis_button_preferred_1"></a>
-			<a class="addthis_button_preferred_2"></a>
-			<a class="addthis_button_preferred_4"></a>
-			<a class="addthis_button_compact"></a>
+			<% else %>
+				<div id="loginbox" style="display:none; width: 500px;height: 300px;">
+					<h2>Please login first</h2>
+					<p>In order to customize the Sunshine This letter, we need to you to <%= link_to "sign up", new_user_registration_path %> or <%= link_to "login", new_user_session_path %> to OpenMissouri.</p>		
+				</div>
+				<p style="margin-bottom: 15px; display: block;" class="clearfix"><a href="#loginbox" rel="facebox"><%= image_tag("/images/buttons/sunshine_this.png")%></a></p>
+			<% end %>
+
+			<div class="sidebar_section" class="clearfix">
+	
+				<h3>Share this Data Set</h3>
+				
+				<div class="social_menu">
+					<!-- AddThis Button BEGIN -->
+					<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+					<a class="addthis_button_preferred_1"></a>
+					<a class="addthis_button_preferred_2"></a>
+					<a class="addthis_button_preferred_4"></a>
+					<a class="addthis_button_compact"></a>
+					</div>
+					<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+					<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4d6829810b0f411f"></script>
+					<!-- AddThis Button END -->
+				</div>
 			</div>
-			<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
-			<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4d6829810b0f411f"></script>
-			<!-- AddThis Button END -->
 		</div>
 	</div>
-</div>
 
-
-<div id="content" class="clearfix">
+<% end %>
 	
 	<% title @data_set.name %>
 	<div class="page_subtitle"><%= link_to @data_set.organization.name, @data_set.organization %></div>
@@ -132,22 +122,9 @@
 			</script>
 			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 			<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-		</div>
+
 	</div>
 
-<div>
 <script>
 	jQuery(document).ready(function($) {
 	  $('a[rel*=facebox]').facebox()

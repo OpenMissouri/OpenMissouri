@@ -1,5 +1,5 @@
 class DataSetsController < ApplicationController
-  before_filter :authenticate_user!, {:only => [:suggest, :create]}
+  before_filter :authenticate_user!, {:only => [:suggest, :create, :sunshine]}
   before_filter :authenticate_admin, {:only => [:new, :edit, :destroy]}
   inherit_resources
   
@@ -28,6 +28,13 @@ class DataSetsController < ApplicationController
     @data_set = DataSet.find(params[:id])
     @comment = @data_set.comments.new
     show!
+  end
+  
+  def sunshine
+    @data_set = DataSet.find(params[:id])
+    respond_to do |format|
+      format.html
+    end
   end
   
   def feed

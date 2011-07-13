@@ -1,136 +1,132 @@
-<p id="notice"><%= notice %></p>
-<div id="sidebar">
-	<% if user_signed_in? and current_user.admin? %>
-		<p class="clearfix"><%= link_to 'Edit agency', edit_organization_path(@organization), :class => 'button' %></p>
-	<% end %>
-	<div class="sidebar_section_unbound" class="clearfix">
-	
-		<h3>Share this Agency</h3>
-		<div class="social_menu">
-			<!-- AddThis Button BEGIN -->
-			<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-			<a class="addthis_button_preferred_1"></a>
-			<a class="addthis_button_preferred_2"></a>
-			<a class="addthis_button_preferred_4"></a>
-			<a class="addthis_button_compact"></a>
+<% content_for :sidebar do %>
+	<div id="sidebar">
+		<div id="sidebar_content">
+			<% if user_signed_in? and current_user.admin? %>
+				<p class="clearfix"><%= link_to 'Edit agency', edit_organization_path(@organization), :class => 'button' %></p>
+			<% end %>
+			
+			<div class="sidebar_section" class="clearfix">
+				<h3>Share this Agency</h3>
+				<div class="social_menu">
+					<!-- AddThis Button BEGIN -->
+					<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+					<a class="addthis_button_preferred_1"></a>
+					<a class="addthis_button_preferred_2"></a>
+					<a class="addthis_button_preferred_4"></a>
+					<a class="addthis_button_compact"></a>
+					</div>
+					<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+					<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4d6829810b0f411f"></script>
+					<!-- AddThis Button END -->
+				</div>
 			</div>
-			<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
-			<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4d6829810b0f411f"></script>
-			<!-- AddThis Button END -->
+			
 		</div>
 	</div>
-</div>
 
-<div id="content" class="clearfix">
-	
-	<% title @organization.name %>
+<% end %>
 
-
-	<div class="summary_box">
-		<table cellspacing="0" cellpadding="0" border="0" class="summary_table">
-			<tr>
-				<td>
-					<div class="contact_info">
+<% title @organization.name %>
+<div class="summary_box">
+	<table cellspacing="0" cellpadding="0" border="0" class="summary_table">
+		<tr>
+			<td>
+				<div class="contact_info">
 					<label>Address</label>
 					<%=raw address_block(@organization.address1, @organization.address2, @organization.city, @organization.state, @organization.postal_code) %>
-					</div>
-					
-					<% unless @organization.government_level.blank? %>
-						<p>
-						  <label>Government level:</label>
-						  <%= @organization.government_level.name %>
-						</p>
-					<% end %>
-					
-					<% unless @organization.governement_entity_name.blank? %>
-						<p>
-						  <label>Government entity name:</label>
-						  <%= @organization.governement_entity_name %>
-						</p>
-					<% end %>
-
-					<% unless @organization.agency_head.blank? %>
-						<p>
-						  <label>Agency head:</label>
-						  <%= @organization.agency_head %>
-						</p>
-					<% end %>
-
-					<% unless @organization.website.blank? %>
-						<p>
-						  <label>Website:</label>
-						  <%= link_to @organization.website, format_url(@organization.website) %>
-						</p>
-					<% end %>
-
-
-
-				</td>
-				<td>
-					
-					<% unless @organization.sunshine_contact.blank? %>
-						<p>
-						  <label>Sunshine contact:</label>
-						  <%= @organization.sunshine_contact %>
-						</p>
-					<% end %>
-
-					<% unless @organization.sunshine_title.blank? %>
-						<p>
-						  <label>Sunshine title:</label>
-						  <%= @organization.sunshine_title %>
-						</p>
-					<% end %>
-					<% unless @organization.sunshine_phone.blank? %>
-						<p>
-						  <label>Sunshine phone:</label>
-						  <%= @organization.sunshine_phone %>
-						</p>
-					<% end %>
-
-					<% unless @organization.sunshine_phone.blank? %>
-						<p>
-						  <label>Sunshine email:</label>
-						  <%= mail_to @organization.sunshine_email, @organization.sunshine_email %>
-						</p>
-					<% end %>
-					
-						<p>
-						  <label>Accepts email requests?</label>
-						<%= @organization.accepts_email_requests ? 'Yes' : 'No' %>
-							
-						</p>
-				</td>
-			</tr>
-		</table>
-		</div>
-		
-		<div class="description">
-		  <%= @organization.description %>
-		</div>
-		<h3>Data Sets</h3>
-		<% unless @data_sets.blank? %>
-			<div id="data_sets">
-			<% @data_sets.each do |data_set| %>
-				<div class="data_set">
-					<h3><%= link_to data_set.name, data_set %></h3>
-					<p><% unless data_set.description.blank?  %>
-			      <%= first_x_words(strip_tags(data_set.description),30,'...') %>
-			    	<% end %> </p>
-
 				</div>
-			<% end %>
-		  <%= will_paginate(@data_sets) %>
-		<% else %>
-		  <p>This organization does not have any data sets</p>
-		<% end %>
+				
+				<% unless @organization.government_level.blank? %>
+					<p>
+					  <label>Government level:</label>
+					  <%= @organization.government_level.name %>
+					</p>
+				<% end %>
+				
+				<% unless @organization.governement_entity_name.blank? %>
+					<p>
+					  <label>Government entity name:</label>
+					  <%= @organization.governement_entity_name %>
+					</p>
+				<% end %>
 
+				<% unless @organization.agency_head.blank? %>
+					<p>
+					  <label>Agency head:</label>
+					  <%= @organization.agency_head %>
+					</p>
+				<% end %>
+
+				<% unless @organization.website.blank? %>
+					<p>
+					  <label>Website:</label>
+					  <%= link_to @organization.website, format_url(@organization.website) %>
+					</p>
+				<% end %>
+			</td>
+			<td>
+				
+				<% unless @organization.sunshine_contact.blank? %>
+					<p>
+					  <label>Sunshine contact:</label>
+					  <%= @organization.sunshine_contact %>
+					</p>
+				<% end %>
+
+				<% unless @organization.sunshine_title.blank? %>
+					<p>
+					  <label>Sunshine title:</label>
+					  <%= @organization.sunshine_title %>
+					</p>
+				<% end %>
+				<% unless @organization.sunshine_phone.blank? %>
+					<p>
+					  <label>Sunshine phone:</label>
+					  <%= @organization.sunshine_phone %>
+					</p>
+				<% end %>
+
+				<% unless @organization.sunshine_phone.blank? %>
+					<p>
+					  <label>Sunshine email:</label>
+					  <%= mail_to @organization.sunshine_email, @organization.sunshine_email %>
+					</p>
+				<% end %>
+				
+					<p>
+					  <label>Accepts email requests?</label>
+					<%= @organization.accepts_email_requests ? 'Yes' : 'No' %>
+						
+					</p>
+			</td>
+		</tr>
+	</table>
 	</div>
 	
-	
-	
+	<div class="description">
+	  <%= @organization.description %>
+	</div>
+	<h3>Data Sets</h3>
+	<% unless @data_sets.blank? %>
+		<div id="data_sets" class="data_list">
+		<% @data_sets.each do |data_set| %>
+			<div class="data_item">
+				<h3><%= link_to data_set.name, data_set %></h3>
+				<div class="categories"><%= data_set.categories.collect{|category| category.name}.join(", ") %></div>
+				<div class="snippet"><% unless data_set.description.blank?  %>
+		      <%= first_x_words(strip_tags(data_set.description),30,'...') %>
+		    	<% end %> </div>
+			</div>
+		<% end %>
+	  <%= will_paginate(@data_sets) %>
+	<% else %>
+	  <p>This organization does not have any data sets</p>
+	<% end %>
 
-</div>
+
+
+
+
 
 
 

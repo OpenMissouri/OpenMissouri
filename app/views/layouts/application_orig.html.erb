@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title><%= configatron.app_name %> - <%= yield(:title) || 'Home' %></title>
+    <%= stylesheet_link_tag :flutie, 'application', 'search', 'facebox' %>
+		<link rel="stylesheet" href="/stylesheets/print.css" type="text/css" media="print"> 
+    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag 'facebox' %>
+
+		<%= auto_discovery_link_tag(:rss) %>
+    <%= csrf_meta_tag %>
+    <%= yield(:head) %>
+		<link href='http://fonts.googleapis.com/css?family=Cabin:regular,500,600,bold' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+		
+	<div id="wrapper">
+		<div class="header_holder clearfix">
+			<div class="header clearfix">
+				<div class="logo clearfix"><%= link_to image_tag("logo.png", :border => 0), root_path %></div>
+				<%= render 'layouts/navigation' %>
+				
+			</div>
+		</div>
+    <div class="content_holder clearfix">
+	    <div class="content clearfix">
+	      <%= render 'layouts/messages' %>
+
+	      <% if show_title? %>
+	        <h1><%= yield(:title) %></h1>
+	      <% end %>
+
+	      <%= yield %>
+				</div>
+    </div>
+	</div><!-- end wrapper -->
+		<div class="footer_holder clearfix">
+			<div class="footer">
+				<table cellspacing="0" cellpadding="0" border="0" class="footer_table">
+					<tr>
+						<td class="first">
+							<h3>About Open Missouri</h3>
+							
+							<p>Open Missouri is a project of the <a href="http://www.rjionline.org/">Donald W. Reynolds Journalism Institute</a> at the <a href="http://journalism.missouri.edu/">Missouri School of Journalism</a> in Columbia that aims to make state and local government data more available to citizens and journalists.</p>
+							<p>RJI is funded by the <a href="http://www.dwreynolds.org/">Donald W. Reynolds Foundation.</a></p>
+						</td>
+						
+						<td class="second">
+							<h3>Open Missouri's goals are to:</h3>
+							<ul>
+							<li><strong>Inform</strong> Missourians about public data held by government agencies</li>
+							<li><strong>Inspire</strong> journalists, citizens, web developers, entrepreneurs, businesses and non-profits to access and use public data in ways that enhance their civic, professional and personal lives.</li>
+							<li><strong>Serve</strong> as a platform that connects people who are using data from state and local government agencies.</li>
+							<li><strong>Educate</strong> Missourians about how they can access and use public data.</li>
+							</ul>
+							
+						</td>
+						<td class="third">
+							<h3>Explore the site</h3>
+							<ul>
+							<li><%= link_to "About", about_path %></li>
+							<li><%= link_to "Open Missouri Team", omteam_path %></li>
+							<li><%= link_to "Frequently Asked Questions", faq_path %></li>
+							<% unless @terms_links.blank? %>
+								<% @terms_links.each do |page| %>
+									<li><%= link_to page.title, page_path(page.section, page) %></li>
+								<% end %>
+							<% end %>
+							<% unless @privacy_links.blank? %>
+								<% @privacy_links.each do |page| %>
+									<li><%= link_to page.title, page_path(page.section, page) %></li>
+								<% end %>
+							<% end %>
+							
+							</ul>
+						</td>
+					</tr>
+				</table>
+
+			</div>
+		</div>
+  </body>
+</html>
