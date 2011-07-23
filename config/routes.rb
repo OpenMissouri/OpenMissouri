@@ -33,10 +33,10 @@ Rails3Base::Application.routes.draw do
   #match 'admin/make_user_admin/:id', :to => 'admin#make_user_admin', :as => "make_user_admin"
     
   #about routes
-  match 'about', :to => 'dashboard#about', :as => "about"
-  match 'omteam', :to => 'dashboard#omteam', :as => "omteam"
-  match 'opensource', :to => 'dashboard#opensource', :as => "opensource"
-  match 'faq', :to => 'dashboard#faq', :as => "faq"
+  match 'about', :to => 'pages#about', :as => "about"
+  match 'omteam', :to => 'pages#omteam', :as => "omteam"
+  match 'opensource', :to => 'pages#opensource', :as => "opensource"
+  match 'faq', :to => 'pages#faq', :as => "faq"
   match 'search', :to => 'dashboard#search', :as => "search"
   match 'privacy', :to => 'dashboard#privacy', :as => "privacy"
   match 'terms', :to => 'dashboard#terms', :as => "terms"

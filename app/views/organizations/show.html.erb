@@ -1,4 +1,5 @@
 <% content_for :sidebar do %>
+
 	<div id="sidebar">
 		<div id="sidebar_content">
 			<% if user_signed_in? and current_user.admin? %>
@@ -122,6 +123,7 @@
 	<% else %>
 	  <p>This organization does not have any data sets</p>
 	<% end %>
+	</div>
 
 
 
