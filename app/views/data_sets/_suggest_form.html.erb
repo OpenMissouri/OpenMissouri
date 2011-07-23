@@ -15,7 +15,7 @@
 	  <%= form.input :documentation_url, :as => :string %>
     <%= form.input :interest, :label => "What's your interest in the data?" %>
     <%= form.input :tag_list, :label => "Tags (Separate with commas)" %>
-		<%= form.input :samplefile, :as => :file %> 
+		<%= form.input :samplefile, :as => :file, :html => {:value => "Add this file"} %> 
 
   
 		<%= form.input :suggester_id, :as => :hidden%>

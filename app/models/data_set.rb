@@ -5,6 +5,8 @@ class DataSet < ActiveRecord::Base
   has_and_belongs_to_many :categories
   belongs_to :suggester, :class_name => "User", :foreign_key => "suggester_id"
   acts_as_commentable
+
+  attr_accessible :samplefile_file_name
   
   cattr_reader :per_page
   @@per_page = 20
