@@ -1,6 +1,8 @@
 class DataSetsController < ApplicationController
   before_filter :authenticate_user!, {:only => [:suggest, :create, :sunshine]}
   before_filter :authenticate_admin, {:only => [:new, :edit, :destroy]}
+  after_filter :add_sunshine_request, {:only => [:sunshine]}
+
   inherit_resources
   
   def index
@@ -46,6 +48,9 @@ class DataSetsController < ApplicationController
       end
   end
   
+  def add_sunshine_request
+    @data_set.sunshine_requests.create(:user => current_user)
+  end
   
   def create
     @data_set = DataSet.new(params[:data_set])

@@ -1,31 +1,41 @@
 <% title "Edit #{resource_name.to_s.humanize}" %>
 
 <%= semantic_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |form| %>
-  <%= form.inputs do %>
-    <%= form.input :first_name, :required => true %>
-		<%= form.input :last_name, :required => true %>
-    <%= form.input :email, :required => true %>
-		<%= form.input :position %>
-		<%= form.input :affiliation, :label => "Agency or Organization Affiliation" %>
-		<%= form.input :website %>
-		<%= form.input :twitter, :label => "Twitter Username" %>
-		<%= form.input :street1 %>
-		<%= form.input :street2 %>
-		<%= form.input :city %>
-		<%= form.input :state %>
-		<%= form.input :postal_code %>
+	<%= form.inputs do %>
+		<h3>Your Information</h3>
+		<div class="form_section">
+			<%= form.input :first_name, :required => true %>
+			<%= form.input :last_name, :required => true %>
+			<%= form.input :email, :as => :string, :required => true %>
+			<%= form.input :website, :as => :string %>
+			<%= form.input :twitter, :label => "Twitter Username" %>
+			<%= form.input :street1 %>
+			<%= form.input :street2 %>
+			<%= form.input :city %>
+			<%= form.input :state %>
+			<%= form.input :postal_code %>
+			<%= form.input :phone, :as => :string %>
+		</div>
+		
+		<h3>Agency/Organization Information</h3>
+		<div class="form_section">
+			<%= form.input :position %>
+			<%= form.input :affiliation, :label => "Agency or Organization Affiliation" %>
+		</div>
 
-    
-		<%= form.input :password, :required => true, :hint => "leave blank if you don't want to change it" %>
-    <%= form.input :password_confirmation, :required => true %>
-    <% if resource.password_stored? %>
-      <%= form.input :current_password, :required => true, :hint => "we need your current password to confirm your changes" %>
-    <% end %>
-  <% end %>
+    	<h3>Change Your Password</h3>
+		<div class="form_section">
+			<%= form.input :password, :required => true, :hint => "leave blank if you don't want to change it" %>
+			<%= form.input :password_confirmation, :required => true %>
+			<% if resource.password_stored? %>
+				<%= form.input :current_password, :required => true, :hint => "we need your current password to confirm your changes" %>
+			<% end %>
+		</div>
+	<% end %>
 
-  <%= form.buttons do %>
-    <%= form.commit_button 'Update' %>
-  <% end %>
+	<%= form.buttons do %>
+		<%= form.commit_button 'Save Changes' %>
+	<% end %>
 <% end %>
 
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>

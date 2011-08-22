@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110712162448) do
+ActiveRecord::Schema.define(:version => 20110822203713) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -121,6 +122,13 @@ ActiveRecord::Schema.define(:version => 20110712162448) do
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_histories_on_item_and_table_and_month_and_year"
 
+  create_table "sunshine_requests", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "data_set_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
@@ -175,6 +183,7 @@ ActiveRecord::Schema.define(:version => 20110712162448) do
     t.string   "state"
     t.string   "postal_code"
     t.integer  "agency_id"
+    t.string   "phone"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

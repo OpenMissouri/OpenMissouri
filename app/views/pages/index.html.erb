@@ -3,6 +3,19 @@
 		<div id="sidebar_content">
 			<%= render :partial => "sidebar"%>
 		</div>
+		<div class="sidebar_section_unbound" class="clearfix">
+		  <%= render :partial => "/shared/add_data_set_actions" %>
+			<%= render :partial => "/shared/social_follow_links" %>
+		</div>
+		
+		<div class="sidebar_section" class="clearfix">
+			<%= render :partial => "/shared/news_headlines" %>
+		</div>
+		
+		<div class="sidebar_section" class="clearfix">
+			<%= render :partial => "/shared/categories_list" %>
+		</div>
+		<%= render :partial => "/shared/email_subscription_form"%>
 	</div>
 <% end %>	
 

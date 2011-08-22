@@ -295,10 +295,9 @@ a.cancel {
 
 /* Fieldsets */
 fieldset {
-  background: #f1f1f1;
-  border: 1px solid #e3e3e3;
+  
   margin: 0 0 1.5em 0;
-  padding: 1.5em 1.5em 1em 1.5em; }
+   }
 
 fieldset fieldset,
 fieldset fieldset fieldset {

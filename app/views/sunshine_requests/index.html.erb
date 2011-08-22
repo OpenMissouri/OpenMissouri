@@ -1,0 +1,16 @@
+<% title 'Listing sunshine_requests' %>
+
+<% unless @sunshine_requests.blank? %>
+  <%= table_for(@sunshine_requests) %>
+  <%= will_paginate(@sunshine_requests) %>
+<% else %>
+  <p>Now it's time to create some data here. To create new entry, please use the button below.</p>
+  <br /><br />
+<% end %>
+
+<br />
+
+<p>
+  <%= link_to 'New Sunshine request', new_sunshine_request_path, :class => 'button' %>
+</p>
+

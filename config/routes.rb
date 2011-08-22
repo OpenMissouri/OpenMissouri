@@ -3,6 +3,8 @@ Rails3Base::Application.routes.draw do
   
   
 
+  resources :sunshine_requests
+
   match 'data_sets/feed', :to => 'data_sets#feed', :action => 'feed'
   
   match 'suggest_a_data_set', :to => 'data_sets#suggest', :as => "suggest"

@@ -22,10 +22,11 @@
 	<p><a id="d_clip_button" href="#">Copy To Clipboard</a></p>
 	<script language="JavaScript">
 		var clip = new ZeroClipboard.Client();
-		clip.setText( '<%= sunshine_letter_text(@data_set, current_user)%>' );
+		clip.setText( '<%= sunshine_letter_text(@data_set, current_user, true, "text")%>' );
 		clip.glue( 'd_clip_button' );
 	</script>
 	
 	<div id="sunshine_content">
-		<%=render :partial => "sunshine_text"%>
+		<%= sunshine_letter_text(@data_set, current_user, false, "html")%>
+		<%#=render :partial => "sunshine_text"%>
 	</div>

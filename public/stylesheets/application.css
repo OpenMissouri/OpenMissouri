@@ -170,6 +170,7 @@ table.list td.actions a:hover { filter:progid:DXImageTransform.Microsoft.Alpha(o
 #content .home_mission{ font-size: 18px; font-weight:bold; line-height: 24px;}
 
 .form_admin_only{ padding: 15px; background-color: #ccc; }
+.form_section{ margin: 0 0 15px 0; background-color: #f1f1f1; padding: 15px; border-bottom: 1px solid #ccc}
 
 a.button, fieldset.buttons input { background: url("/images/button_bg.gif") bottom left repeat-x; border:0; height:32px; overflow:visible; cursor:pointer; border:solid 1px #d2d2d2; line-height:30px; padding: 0 10px; font-weight:bold; text-shadow: 1px 1px #fff; border-radius:3px; -khtml-border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; margin:0; text-transform:uppercase; color:#000; text-decoration:none; }
 a.button:hover, fieldset.buttons input:hover { color:#555; }
