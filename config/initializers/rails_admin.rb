@@ -48,6 +48,8 @@ module RailsAdmin
 #end
 
   RailsAdmin.config do |config|
+    
+    config.excluded_models << "UserIdentity"
   
 #  config.model UserIdentity do
 #      visible false
@@ -66,11 +68,11 @@ module RailsAdmin
       sort_by :name
       sort_reverse false 
       
-      field :samplefile_file_name do
-        formatted_value do
-          bindings[:view].tag(:link, { :href => bindings[:object].samplefile.url }) << value
-        end
-      end
+      #field :samplefile_file_name do
+      #  formatted_value do
+      #    bindings[:view].tag(:link, { :href => bindings[:object].samplefile.url }) << value
+      #  end
+      #end
       
     end
     

@@ -39,7 +39,7 @@ module ApplicationHelper
     end
     
     unless data_set.organization.name.blank?
-      txt << "#{linebreak(output)}#{data_set.organization.name}"
+      txt << " #{data_set.organization.name}"
     end
     
     txt << "#{linebreak(output)}#{address_block(data_set.organization.address1, data_set.organization.address2, data_set.organization.city, data_set.organization.state, data_set.organization.postal_code, output)}" 
