@@ -197,4 +197,4 @@ form abbr { color:red; font-size:1.2em; margin-left:.2em; }
 #session_new { width: 400px; }
 
 
-/*.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }*/
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
