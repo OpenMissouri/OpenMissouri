@@ -49,7 +49,11 @@ class DataSetsController < ApplicationController
   end
   
   def add_sunshine_request
-    @data_set.sunshine_requests.create(:user => current_user)
+    @data_set.sunshine_requests.create(:user => current_user, 
+                                      :first_name => current_user.first_name,
+                                      :last_name => current_user.last_name,
+                                      :entity_name => @data_set.organization.governement_entity_name,
+                                      :agency_name => @data_set.organization.name)
   end
   
   def create

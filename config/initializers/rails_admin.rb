@@ -83,6 +83,19 @@ module RailsAdmin
 
     end
   end
+  
+  config.model SunshineRequest do
+    list do
+      field :data_set
+      field :first_name
+      field :last_name 
+      field :agency_name
+      field :entity_name
+      field :created_at
+      
+      
+    end
+  end
 #
 #  config.model Organization do
 #    list do

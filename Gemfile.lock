@@ -73,9 +73,6 @@ GEM
     haml (3.1.2)
     has_scope (0.5.1)
     highline (1.6.2)
-    hoptoad_notifier (2.4.11)
-      activesupport
-      builder
     i18n (0.5.0)
     inherited_resources (1.1.2)
       has_scope (~> 0.5.0)
@@ -208,7 +205,6 @@ DEPENDENCIES
   devise (= 1.2.rc)
   flutie (= 1.1.2)
   formtastic (= 1.2.0)
-  hoptoad_notifier
   inherited_resources (= 1.1.2)
   jquery-rails (= 0.2.5)
   mysql2 (= 0.2.7)
