@@ -9,9 +9,9 @@ set :use_sudo, false
 set :deploy_to, "/var/www/apps/#{application}"
 set :deploy_via, :remote_cache
 
-role :web, "staging.openmissouri.org"                           # Your HTTP server, Apache/etc
-role :app, "staging.openmissouri.org"                           # This may be the same as your `Web` server
-role :db,  "staging.openmissouri.org", :primary => true         # This is where Rails migrations will run
+role :web, "www.openmissouri.org"                           # Your HTTP server, Apache/etc
+role :app, "www.openmissouri.org"                           # This may be the same as your `Web` server
+role :db,  "www.openmissouri.org", :primary => true         # This is where Rails migrations will run
 
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
