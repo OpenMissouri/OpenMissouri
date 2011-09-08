@@ -5,8 +5,8 @@ ActionMailer::Base.smtp_settings = {
   :address              => "smtp.gmail.com",  
   :port                 => 587,  
   :domain               => "openmissouri.org",  
-  :user_name            => "openmissouri",  
-  :password             => "something",  
+  :user_name            => "mail",  
+  :password             => "openmomail",  
   :authentication       => "plain",  
   :enable_starttls_auto => true  
 }
