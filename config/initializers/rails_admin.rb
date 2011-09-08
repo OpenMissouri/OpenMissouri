@@ -76,6 +76,10 @@ module RailsAdmin
       
     end
     
+    show do
+      
+      exclude_fields :interest, :suggester
+    end
     edit do
       group :comments do
         hide
