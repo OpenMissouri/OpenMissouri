@@ -94,6 +94,13 @@
 					</p>
 					<% end%>
 					
+					<% if @data_set.samplefile? %>
+					<p>
+					  <b>Sample data file submitted by user:</b>
+					  <%= link_to "Download", @data_set.samplefile.url %>
+					</p>
+					<% end%>
+					
 					
 
 				</td>
