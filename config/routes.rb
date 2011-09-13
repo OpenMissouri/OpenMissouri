@@ -43,6 +43,7 @@ Rails3Base::Application.routes.draw do
   match 'privacy', :to => 'dashboard#privacy', :as => "privacy"
   match 'terms', :to => 'dashboard#terms', :as => "terms"
   
+  match 'contact', :to => 'dashboard#contact', :as => "contact"
   
   devise_for :users,
       :controllers => {:omniauth_callbacks => 'omniauth_callbacks'}

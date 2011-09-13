@@ -15,6 +15,10 @@ class DashboardController < ApplicationController
     #@feed = FeedTools::Feed.open('http://blog.openmissouri.org/?feed=rss2')
   end
   
+  def contact
+    
+  end
+  
   def about
     
   end
