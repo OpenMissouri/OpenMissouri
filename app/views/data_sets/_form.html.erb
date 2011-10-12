@@ -1,4 +1,4 @@
-<%= semantic_form_for(resource) do |form| %>
+<%= semantic_form_for resource, :html => { :multipart => true } do |form| %>
   <%= form.inputs do %>
     <%= form.input :name, :label => "Data Set Name" %>
 		<%= form.input :organization, :as => :select, :collection => Organization.find(:all, :order => "name") %>
@@ -14,6 +14,7 @@
     <%= form.input :update_frequency %>
     <%= form.input :documentation_url, :as => :string  %>
     <%= form.input :tag_list %>
+		<%= form.input :samplefile, :as => :file %> 
 
 
 		<div class="form_admin_only">
@@ -24,5 +25,7 @@
 
   <% end %>
 
-  <%= form.buttons %> or <%= link_to 'cancel', resource %> | <%= link_to 'Delete data set', @data_set, :confirm => 'Are you sure?', :method => :delete %>
+	<% form.buttons do %>
+		<%= form.commit_button %><%= link_to 'cancel', resource %>
+	<% end %>
 <% end %>

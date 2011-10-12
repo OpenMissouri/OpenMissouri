@@ -1,44 +1,34 @@
-<p id="notice"><%= notice %></p>
-<div id="sidebar">
-	<div id="sidebar_content" class="clearfix">		
-		<p>
-			<% if user_signed_in? and current_user.admin? %>
-		  	<%= link_to 'Add an Agency', new_organization_path, :class => 'button' %>
-			<% else %>
-			<%= link_to 'Suggest a Data Set', suggest_path, :class => 'button' %>
-		
-			<% end %>
-			
-		</p>
+<% content_for :sidebar do %>
+	<div id="sidebar">
+		<div id="sidebar_content">
+			<div class="sidebar_section_unbound" class="clearfix">
+				<% if user_signed_in? and current_user.admin? %>
+			  	<%= link_to 'Add an Agency', new_organization_path, :class => 'button' %>
+				<% else %>
+					<%= render :partial => "/shared/add_data_set_actions" %>
+				<% end %>
+			</div>			
+		</div>
 	</div>
-</div>
-
-<div id="content" class="clearfix">
-	
+<% end %>
 
 <% title 'Agencies' %>
 
 <% unless @organizations.blank? %>
-	<div id="data_list">
+	<div id="data_set" class="data_list">
 	<% @organizations.each do |organization| %>
 		<div class="data_item">
 			<h3><%= link_to organization.name, organization_path(organization) %></h3>
-			<p><%= organization.published_data_sets.size %> data sets</p>
-			<p><% unless organization.description.blank?  %>
+			<div class="set_summary"><%= organization.published_data_sets.size %> data sets</div>
+			<div class="snippet"><% unless organization.description.blank?  %>
 	      <%= first_x_words(strip_tags(organization.description),30,'...') %>
-	    	<% end %> </p>
-			
+	    	<% end %> </div>
 		</div>
 	<% end %>
 	</div>
 
   <%= will_paginate(@organizations) %>
 <% else %>
-  <br /><br />
+  <p>No organizations have been added.</p>
 <% end %>
 
-<br />
-
-
-
-</div>

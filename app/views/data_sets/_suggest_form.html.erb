@@ -1,4 +1,4 @@
-<%= semantic_form_for(resource) do |form| %>
+<%= semantic_form_for resource, :html => { :multipart => true } do |form| %>
 	<%= form.inputs do %>
 	  <%= form.input :name, :label => "Data Set Name" %>
 		<%= form.input :organization, :as => :select, :collection => Organization.find(:all, :order => "name") %>
@@ -15,11 +15,14 @@
 	  <%= form.input :documentation_url, :as => :string %>
     <%= form.input :interest, :label => "What's your interest in the data?" %>
     <%= form.input :tag_list, :label => "Tags (Separate with commas)" %>
+		<%= form.input :samplefile, :as => :file, :html => {:value => "Add this file"} %> 
 
   
 		<%= form.input :suggester_id, :as => :hidden%>
 
 	<% end %>
-
-	<%= form.buttons %> or <%= link_to 'cancel', resource %>
+	
+	<% form.buttons do %>
+		<%= form.commit_button %><%= link_to 'cancel', resource %>
+	<% end %>
 <% end %>

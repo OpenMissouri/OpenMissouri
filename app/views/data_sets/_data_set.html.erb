@@ -1,11 +1,7 @@
-<%# @data_sets.each do |data_set| %>
-	
 <div class="data_item">
 	<h3><%= link_to data_set.name, data_set_path(data_set) %></h3>
-	<p><% unless data_set.organization.blank? %><%= link_to data_set.organization.name, organization_path(data_set.organization) %><% end %></p>
-	<p><% unless data_set.description.blank?  %>
+	<div class="organization"><% unless data_set.organization.blank? %><%= link_to data_set.organization.name, organization_path(data_set.organization) %><% end %></div>
+	<div class="snippet"><% unless data_set.description.blank?  %>
     <%= first_x_words(strip_tags(data_set.description),30,'...') %>
-  	<% end %> </p>
+  	<% end %> </div>
 </div>
-
-<%# end %>

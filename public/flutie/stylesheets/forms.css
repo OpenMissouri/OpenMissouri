@@ -36,13 +36,8 @@ input[type="submit"]::-moz-focus-inner {
 /* Fieldsets */
 fieldset {
   margin: 0 0 1.5em 0;
-  background: #f1f1f1;
-  padding: 1.5em 1.5em 1em 1.5em;
-  border: 1px solid #e3e3e3;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
 }
+
 fieldset fieldset, fieldset fieldset fieldset {
   padding: 0;
   border: 0;

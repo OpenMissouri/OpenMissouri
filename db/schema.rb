@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,12 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110414163646) do
-
-  create_table "admins", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20110830170822) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -63,7 +59,11 @@ ActiveRecord::Schema.define(:version => 20110414163646) do
     t.text     "interest"
     t.integer  "suggester_id"
     t.text     "agency_other"
-    t.string   "status",            :default => "unpublished"
+    t.string   "status",                  :default => "unpublished"
+    t.string   "samplefile_file_name"
+    t.string   "samplefile_content_type"
+    t.integer  "samplefile_file_size"
+    t.datetime "samplefile_updated_at"
   end
 
   create_table "government_levels", :force => true do |t|
@@ -114,13 +114,24 @@ ActiveRecord::Schema.define(:version => 20110414163646) do
     t.string   "username"
     t.integer  "item"
     t.string   "table"
-    t.integer  "month",      :limit => 2
+    t.integer  "month"
     t.integer  "year",       :limit => 8
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_histories_on_item_and_table_and_month_and_year"
+
+  create_table "sunshine_requests", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "data_set_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "entity_name"
+    t.string   "agency_name"
+  end
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
@@ -176,6 +187,7 @@ ActiveRecord::Schema.define(:version => 20110414163646) do
     t.string   "state"
     t.string   "postal_code"
     t.integer  "agency_id"
+    t.string   "phone"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
