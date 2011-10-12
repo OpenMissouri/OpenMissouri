@@ -25,6 +25,7 @@ gem 'sunspot_rails', '1.2.1'
 #gem 'feedtools', :path => 'vendor/gems/feedtools'
 gem 'simple-rss'
 gem 'paperclip', '2.3.5'
+gem "recaptcha", :require => "recaptcha/rails"
 
 group :test, :development do
 	gem 'railsmachine'

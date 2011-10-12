@@ -9,9 +9,12 @@
       <%= form.input :password, :required => true %>
       <%= form.input :password_confirmation, :required => true %>
     <% end %>
+	<%= recaptcha_tags %>
   <% end %>
 
+
   <%= form.buttons do %>
+
     <%= form.commit_button 'Sign up' %>
   <% end %>
 <% end %>

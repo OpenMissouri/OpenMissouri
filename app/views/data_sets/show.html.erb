@@ -96,8 +96,8 @@
 					
 					<% if @data_set.samplefile? %>
 					<p>
-					  <b>Sample data file submitted by user:</b>
-					  <%= link_to "Download", @data_set.samplefile.url %>
+					  <b>Download a sample data file:</b>
+					  <%= link_to "Download sample data", @data_set.samplefile.url, {:class => "small orange awesome"} %>
 					</p>
 					<% end%>
 					

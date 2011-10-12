@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   def prepare_global_sidebar
     @categories = Category.published_categories
     @feed = SimpleRSS.parse open('http://blog.openmissouri.org/?feed=rss2')
+    
   end
   
   def build_footer_links

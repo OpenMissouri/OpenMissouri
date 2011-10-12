@@ -1,9 +1,11 @@
 <h3>OpenMissouri News</h3>
 <ul id="news_headlines">
-	<% for item in @feed.items %>
+	<% @feed.items.each_with_index do |item, index| %>
+		<% if index < 5 %>
 		<li class="story">
 			<h4><%= link_to item.title, item.link %></h4>
 			<%= sanitize first_x_words(item.description,20,nil) %>
 		</li>
+		<% end %>
 	<% end %>
 </ul>
