@@ -1,1 +1,62 @@
-doc/README_FOR_APP
+== OpenMissouri Project
+
+OpenMissouri is a simple application that runs openmissouri.org.
+
+OpenMissouri.org helps connect you to data that's stored offline by state and local government agencies. We make it easy for you to find, request and share information about these hundreds of offline data sets.
+
+The OpenMissouri Project is built with Rails 3 and Ruby 1.9.2.
+
+
+=== Some gems that are used
+
+* Basic auth: Devise http://github.com/plataformatec/devise, app/models/user.rb
+* OAuth auth: Omniauth https://github.com/intridea/omniauth, app/models/user/omni_auth_extension.rb
+* Navigation: SimpleNavigation http://github.com/andi/simple-navigation, config/navigations
+* DRY controllers: Inherited Resources, http://github.com/josevalim/inherited_resources
+* Form builder: Formtastic http://github.com/justinfrench/formtastic, config/initializers/formtastic.rb
+* List builder: Tabletastic http://github.com/jgdavey/tabletastic, config/initializers/tabletastic.rb
+* Default styles for Formtastic: Flutie, github.com/thoughtbot/flutie
+* Application config: Configatron, http://github.com/markbates/configatron, config/config.yml
+* JS Framework: Jquery-rails, http://github.com/indirect/jquery-rails
+* Tests: RSpec, Shoulda, RR, Cucumber, Factory Girl, Autotest
+* Code metrics: rails_best_practices, http://github.com/flyerhzm/rails_best_practices and rcov
+
+=== Initializers you might want to modify
+
+* config.rb - loads configuration for current Rails environment to the configatron, so you can access them like configatron.app_name
+* devise.rb - setup devise options, mailer_sender and pepper from config
+* formtastic.rb - setup formtastic options
+* tabletastic.rb -  setup tabletastic options, by default all actions rendered in the list
+* mailer.rb - setup default hosts for mailer from configuration
+* simple_navigation.rb - setup simplae navigation options
+* time_formats.rb - setup default time formats, so you can use them like object.create_at.to_s(:us_time)
+* requires.rb - automatically requires everything in lib/ & lib/extensions
+
+=== Quick start
+
+* clone repository
+* tune gemspec name in the .rvmrc
+* tune config/config.yml
+* tune in the sources application name: s/Rails3Base/YouApplicationName/g
+* tune config/database.yml.example and copy it to the config/database.yml
+* bundle install
+* rake cucumber
+* for autotest run in the shell "export AUTOFEATURE=true" and than run autotest command
+
+=== Authorization
+
+We use Devise for login based auth b/c is modular and have a good community support. Take a look at config/initializers/devise.rb
+if you want customize it.
+
+We use Omniauth for authientification over OAuth with Twitter. Please configure key & secret token in the config/config.yml
+If you don't want to use omniauth simply comment it's configuration in the config/initializers/devise.rb
+
+=== Scaffolding
+
+Scaffold generator will create: model with rspec, factory, controller based on inherited resources, views based on formtastic & tabletastic.
+
+  $ rails g scaffold post title:string text:text
+
+Cucumber:feature generator will create: cucumber feature for scaffold resource
+
+  $ rails g cucumber:feature post title:string text:text

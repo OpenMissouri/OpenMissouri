@@ -3,17 +3,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="google-site-verification" content="RZVDLwKiowg9EKNiMFhZ0K2tljPCJ9T1268LGn1Gkqo" />
     <title><%= configatron.app_name %> - <%= yield(:title) || 'Home' %></title>
     <%= stylesheet_link_tag :flutie, 'application', 'search', 'facebox' %>
 		<link rel="stylesheet" href="/stylesheets/print.css" type="text/css" media="print"> 
     <%= javascript_include_tag :defaults %>
-    <%= javascript_include_tag 'facebox' %>
-
+    <%= javascript_include_tag 'facebox', 'ZeroClipboard' %>
+	
 		<%= auto_discovery_link_tag(:rss) %>
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
-		<link href='http://fonts.googleapis.com/css?family=Cabin:regular,500,600,bold' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700&v2' rel='stylesheet' type='text/css'>
+		
   </head>
   <body>
 		
@@ -21,22 +22,25 @@
 		<div class="header_holder clearfix">
 			<div class="header clearfix">
 				<div class="logo clearfix"><%= link_to image_tag("logo.png", :border => 0), root_path %></div>
-				<%= render 'layouts/navigation' %>
-				
-			</div>
-		</div>
-    <div class="content_holder clearfix">
-	    <div class="content clearfix">
-	      <%= render 'layouts/messages' %>
-
-	      <% if show_title? %>
-	        <h1><%= yield(:title) %></h1>
-	      <% end %>
-
-	      <%= yield %>
+					<%= render 'layouts/navigation' %>
 				</div>
-    </div>
-	</div><!-- end wrapper -->
+			</div>
+    	<div class="content_holder clearfix">
+	    	<div class="content clearfix">
+	      	<%= render 'layouts/messages' %>
+					<div id="content" class="clearfix">
+						<div id="content_inner" class="clearfix">
+	      	<% if show_title? %>
+	        	<h1><%= yield(:title) %></h1>
+	      	<% end %>
+
+	      	<%= yield %>
+					</div>
+					</div>
+					<%= yield(:sidebar) %>
+				</div>
+    	</div>
+		</div><!-- end wrapper -->
 		<div class="footer_holder clearfix">
 			<div class="footer">
 				<table cellspacing="0" cellpadding="0" border="0" class="footer_table">
@@ -61,9 +65,9 @@
 						<td class="third">
 							<h3>Explore the site</h3>
 							<ul>
-							<li><%= link_to "About", about_path %></li>
-							<li><%= link_to "Open Missouri Team", omteam_path %></li>
-							<li><%= link_to "Frequently Asked Questions", faq_path %></li>
+							<li><%= link_to "About", "/pages/about/1-about-open-missouri" %></li>
+							<li><%= link_to "Open Missouri Team", "/pages/about/2-open-missouri-team" %></li>
+							<li><%= link_to "Frequently Asked Questions", "/pages/about/4-frequently-asked-questions" %></li>
 							<% unless @terms_links.blank? %>
 								<% @terms_links.each do |page| %>
 									<li><%= link_to page.title, page_path(page.section, page) %></li>
@@ -82,5 +86,21 @@
 
 			</div>
 		</div>
+		
+		<script type="text/javascript">
+
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-20618751-1']);
+		  _gaq.push(['_setDomainName', 'none']);
+		  _gaq.push(['_setAllowLinker', true]);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+
+		</script>
   </body>
 </html>

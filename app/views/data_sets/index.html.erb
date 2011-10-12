@@ -1,62 +1,33 @@
-<p id="notice"><%= notice %></p>
-<div id="sidebar" class="clearfix">
-	<div class="sidebar_section_unbound" class="clearfix">
-		<!--<p>
-			<%= form_tag('/data_sets') do %>
-			<input type="text" id="query"> <input type="submit" value="search" id="search">
-			<% end %>
-			</p>-->
+<% content_for :sidebar do %>
+
+	<div id="sidebar">
+		<div id="sidebar_content">
 		
-	  <p class="clearfix">
-		<% if user_signed_in? and current_user.admin? %>
-	  	<%= link_to 'Add a Data Set', new_data_set_path, :class => 'button' %>
+			<div class="sidebar_section_unbound" class="clearfix">
+			  <%= render :partial => "/shared/add_data_set_actions" %>
+			</div>
+
 		
-		<% else %>
-			<%= link_to 'Suggest a Data Set', suggest_path, :class => 'button' %>
-			
-		<% end %>
-		</p>
-	</div>
-	
-	<div class="sidebar_section" class="clearfix">
-		<h3>Browse Categories</h3>
-		<ul>
-			<% @categories.each do |category|%>
-				<li><%= link_to category.name, category %></li>
-			<% end %>
-		</ul>		
-	</div>
-	<div class="sidebar_section" class="clearfix">
-		<%= link_to "Subscribe to Data Sets RSS", data_sets_url(:format => :rss), :class => "rss"%>
-	</div>
-	
-
-</div>
-
-<div id="content" class="clearfix">
-
-	<% title 'Browse Data Sets' %>
-
-	<div class="filter_box" style="display: none;">
-		<table cellspacing="0" cellpadding="0" border="0">
-			<tr>
-				<td><label>Jurisdication</label></td>
-				<td><label>Organization</label></td>
-				<td><label>Source</label></td>
-				<td><label>Released</label></td>
-				<td><label>Availability</label></td>
-			</tr>
-		</table>
-	</div>
-
-	<% unless @data_sets.blank? %>
-		<div id="data_list">
-			<%= render @data_sets %>
+			<div class="sidebar_section" class="clearfix">
+				<%= render :partial => "/shared/categories_list" %>
+			</div>
+			<div class="sidebar_section" class="clearfix">
+				<ul>
+					<li><%= link_to "Subscribe to Data Sets RSS", data_sets_url(:format => :rss), :class => "rss"%></li>
+				</ul>
+			</div>
 		</div>
-	  	<%= will_paginate(@data_sets) %>
-	<% else %>
-		<p>We were not able to find any data sets for you.</p>
-	<% end %>
+	</div>
+<% end %>
+
+<% title 'Browse Data Sets' %>
 
 
-</div>
+<% unless @data_sets.blank? %>
+	<div id="data_list" class="data_list">
+		<%= render @data_sets %>
+	</div>
+  	<%= will_paginate(@data_sets) %>
+<% else %>
+	<p>We were not able to find any data sets for you.</p>
+<% end %>

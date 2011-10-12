@@ -1,0 +1,7 @@
+<p class="clearfix">
+	<% if user_signed_in? and current_user.admin? %>
+		<%= link_to 'Add a Data Set', new_data_set_path, :class => 'button' %>
+	<% else %>
+		<%= link_to image_tag("/images/buttons/suggest_dataset.png"), suggest_path %>
+	<% end %>
+</p>

@@ -1,3 +1,4 @@
+Capfile
 .bundle
 db/*.sqlite3
 log/*.log
@@ -6,3 +7,4 @@ coverage/*
 rerun.txt
 config/database.yml
 doc/**/*
+public/system/

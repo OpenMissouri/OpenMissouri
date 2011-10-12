@@ -4,6 +4,12 @@ class ApplicationController < ActionController::Base
   before_filter :build_footer_links
   
   
+  def prepare_global_sidebar
+    @categories = Category.published_categories
+    @feed = SimpleRSS.parse open('http://blog.openmissouri.org/?feed=rss2')
+    
+  end
+  
   def build_footer_links
      @terms_links = Page.find(:all, :conditions => "section = 'terms'", :order => "sort")
      @privacy_links = Page.find(:all, :conditions => "section = 'privacy'", :order => "sort")

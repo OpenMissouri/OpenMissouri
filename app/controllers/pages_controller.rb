@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   inherit_resources
   before_filter :build_section_pages
+  before_filter :prepare_global_sidebar, {:only => [:index, :show]}
   
   def build_section_pages
     @page_links = Page.find(:all, :conditions => "section = '#{params[:section]}'", :order => "sort")
