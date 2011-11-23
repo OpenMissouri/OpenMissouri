@@ -28,7 +28,7 @@ The OpenMissouri Project is built with Rails 3 and Ruby 1.9.2.
 * formtastic.rb - setup formtastic options
 * tabletastic.rb -  setup tabletastic options, by default all actions rendered in the list
 * mailer.rb - setup default hosts for mailer from configuration
-* simple_navigation.rb - setup simplae navigation options
+* simple_navigation.rb - setup simple navigation options
 * time_formats.rb - setup default time formats, so you can use them like object.create_at.to_s(:us_time)
 * requires.rb - automatically requires everything in lib/ & lib/extensions
 
@@ -45,11 +45,12 @@ The OpenMissouri Project is built with Rails 3 and Ruby 1.9.2.
 
 === Authorization
 
-We use Devise for login based auth b/c is modular and have a good community support. Take a look at config/initializers/devise.rb
-if you want customize it.
+We use Devise for login based auth because it's modular and has good community support. Take a look at config/initializers/devise.rb
+if you want customize it. You can also view the {Customizing Devise}[http://railscasts.com/episodes/210-customizing-devise] railscast.
 
 We use Omniauth for authientification over OAuth with Twitter. Please configure key & secret token in the config/config.yml
-If you don't want to use omniauth simply comment it's configuration in the config/initializers/devise.rb
+If you don't want to use omniauth simply comment its configuration in the config/initializers/devise.rb. Alternatively if you're
+deploying to Heroku you can use the Heroku {config vars}[http://devcenter.heroku.com/articles/config-vars].
 
 === Scaffolding
 
