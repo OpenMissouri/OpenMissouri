@@ -48,7 +48,7 @@ The OpenMissouri Project is built with Rails 3 and Ruby 1.9.2.
 We use Devise for login based auth because it's modular and has good community support. Take a look at config/initializers/devise.rb
 if you want customize it. You can also view the {Customizing Devise}[http://railscasts.com/episodes/210-customizing-devise] railscast.
 
-We use Omniauth for authientification over OAuth with Twitter. Please configure key & secret token in the config/config.yml
+We use Omniauth for authentication over OAuth with Twitter. Please configure key & secret token in the config/config.yml
 If you don't want to use omniauth simply comment its configuration in the config/initializers/devise.rb. Alternatively if you're
 deploying to Heroku you can use the Heroku {config vars}[http://devcenter.heroku.com/articles/config-vars].
 
