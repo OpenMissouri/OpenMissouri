@@ -34,6 +34,8 @@ class DataSet < ActiveRecord::Base
   #end
   
   def to_param
-		"#{id}-#{name.gsub(/[^a-z0-9]+/i, '-').downcase}"
-	end
+    # parameterize prettifies the url and downcases
+    "#{id}-#{name.parameterize}"
+  end
+
 end

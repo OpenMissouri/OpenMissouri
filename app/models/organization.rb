@@ -21,7 +21,7 @@ class Organization < ActiveRecord::Base
   #end
   
   def to_param
-		"#{id}-#{name.gsub(/[^a-z0-9]+/i, '-').downcase}"
-	end
+    "#{id}-#{name.parameterize}"
+  end
   
 end
